@@ -6,7 +6,7 @@ Animated wedding invitation website for **Dr. Pawan Kumar B** and **Dr. Manisha 
 - **Muhurtham**: Friday, 13 November 2026, 10:28 AM (Dhanur Lagna) · Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady
 
 ## What's inside
-- Temple-door opening with a petal shower and optional music (a soft Mohanam-raga melody generated in the browser, no audio file)
+- Temple-door opening with a petal shower and our song, Naguva Nayana (falls back to a soft Mohanam-raga melody generated in the browser)
 - Arch portrait, letter-by-letter names, live countdown to the muhurtham
 - "Our story" photo chapters joined by a red thread that draws as you scroll
 - Wedding details with Google Calendar and .ics buttons

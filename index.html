@@ -91,11 +91,6 @@ p{margin:0}
 @keyframes breathe{50%{box-shadow:0 0 0 10px rgba(201,165,90,.12),0 10px 30px -12px rgba(201,165,90,.8)}}
 
 /* ---------- floating controls ---------- */
-.sp-card{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:min(340px,calc(100vw - 96px));border-radius:16px;border:1px solid rgba(216,176,106,.6);background:var(--wine-deep);padding:6px 6px 4px;box-shadow:0 16px 40px -16px rgba(0,0,0,.5);transform:translateY(160%);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.sp-card.show{transform:none}
-.sp-card iframe{display:block;border:0;border-radius:12px;width:100%;height:80px}
-.sp-card .sp-hide{position:absolute;top:-14px;right:-10px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(216,176,106,.6);background:var(--wine-deep);color:var(--gold);cursor:pointer;font:500 16px/1 var(--f-body);display:grid;place-items:center}
-.sp-card .sp-hide::before{content:"";position:absolute;inset:-8px}
 .dock{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;gap:10px}
 .dock button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(201,165,90,.6);background:rgba(62,18,34,.88);color:var(--gold);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px);transition:transform .2s}
 .dock button:hover{transform:scale(1.07)}
@@ -322,11 +317,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <button id="petalBtn" type="button" aria-label="Shower flower petals" title="Shower petals">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3c3 3 3 6 0 9-3-3-3-6 0-9z"/><path d="M21 12c-3 3-6 3-9 0 3-3 6-3 9 0z"/><path d="M12 21c-3-3-3-6 0-9 3 3 3 6 0 9z"/><path d="M3 12c3-3 6-3 9 0-3 3-6 3-9 0z"/></svg>
   </button>
-</div>
-
-<div class="sp-card" id="spCard" aria-label="Our song">
-  <div id="spEmbed"></div>
-  <button class="sp-hide" id="spHide" type="button" aria-label="Hide player (music keeps playing)">&#215;</button>
 </div>
 
 <main>
@@ -632,22 +622,23 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       o.connect(g); g.connect(master); o.start();
     });
   }
-  /* ---------- our song on Spotify (falls back to the melody if Spotify can't load) ---------- */
-  const SPOTIFY_URI = 'spotify:track:24LASg8afs2Zj2tVU1kmfw';
-  let sp = null, spReady = false, spWant = false;
-  window.onSpotifyIframeApiReady = api => {
-    api.createController($('#spEmbed'), { uri: SPOTIFY_URI, width: '100%', height: 80 }, c => {
-      sp = c;
-      c.addListener('ready', () => { spReady = true; if (spWant) c.play(); });
-      c.addListener('playback_update', e => { musicOn = !e.data.isPaused; setMusicUI(); });
-    });
-  };
-  const showCard = () => $('#spCard').classList.add('show');
-  $('#spHide').addEventListener('click', () => $('#spCard').classList.remove('show'));
-
+  /* ---------- our song: Naguva Nayana (falls back to the melody if it can't play) ---------- */
+  const song = new Audio('assets/audio/naguva-nayana.mp3');
+  song.loop = true; song.preload = 'auto';
+  let songOk = true, fadeT;
+  song.addEventListener('error', () => { songOk = false; });
+  function fadeSong(to, done){
+    clearInterval(fadeT);
+    fadeT = setInterval(() => {
+      const v = song.volume + (to > song.volume ? .05 : -.05);
+      if ((to > song.volume && v >= to) || (to <= song.volume && v <= to)){ song.volume = Math.max(0, Math.min(1, to)); clearInterval(fadeT); done && done(); }
+      else song.volume = Math.max(0, Math.min(1, v));
+    }, 60);
+  }
   function startMusic(){
-    if (sp){ spWant = true; showCard(); if (spReady) sp.resume(); return; }
-    startMelody();
+    if (!songOk) return startMelody();
+    song.volume = 0;
+    song.play().then(() => { musicOn = true; setMusicUI(); fadeSong(.9); }).catch(() => startMelody());
   }
   function startMelody(){
     try {
@@ -663,16 +654,15 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       musicOn = true; setMusicUI();
     } catch (e) { toast('Music is not available in this browser.'); }
   }
-  function stopMusic(){ if (sp){ spWant = false; sp.pause(); return; } if (ac){ master.gain.linearRampToValueAtTime(0, ac.currentTime + .6); clearInterval(seqTimer); } musicOn = false; setMusicUI(); }
+  function stopMusic(){ if (!song.paused){ fadeSong(0, () => song.pause()); musicOn = false; setMusicUI(); return; } if (ac){ master.gain.linearRampToValueAtTime(0, ac.currentTime + .6); clearInterval(seqTimer); } musicOn = false; setMusicUI(); }
   function setMusicUI(){ const b = $('#musicBtn'); b.classList.toggle('playing', musicOn); b.setAttribute('aria-pressed', musicOn); b.setAttribute('aria-label', musicOn ? 'Pause music' : 'Play music'); }
-  $('#musicBtn').addEventListener('click', () => { if (sp){ showCard(); spWant = !musicOn; spReady && sp.togglePlay(); return; } musicOn ? stopMusic() : startMusic(); });
+  $('#musicBtn').addEventListener('click', () => musicOn ? stopMusic() : startMusic());
   $('#petalBtn').addEventListener('click', () => spawn(70, true));
 
   /* ---------- gate ---------- */
   const gate = $('#gate');
   function openGate(withMusic){
-    if (withMusic){ if (sp){ spWant = true; showCard(); if (spReady) sp.play(); } else startMusic(); }
-    else if (sp) setTimeout(showCard, 2400);
+    if (withMusic) startMusic();
     gate.classList.add('open'); document.body.classList.remove('locked');
     if (!reduce) spawn(90, true);
     setTimeout(revealNames, reduce ? 0 : 900);
@@ -777,6 +767,5 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   });
 })();
 </script>
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>
