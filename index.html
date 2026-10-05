@@ -6,7 +6,7 @@
 <title>Pawan &amp; Manisha · Shubha Vivaha</title>
 <meta name="description" content="Dr. Pawan Kumar B weds Dr. Manisha M · Friday, 13 November 2026, 10:28 AM · Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady">
 <meta property="og:title" content="Pawan &amp; Manisha · Shubha Vivaha">
-<meta property="og:description" content="Friday, 13 November 2026 · 10:28 AM · Kala Bhavana, Belthangady. Your blessings are our only gift.">
+<meta property="og:description" content="#JaanPaddh'Saga · Friday, 13 November 2026 · 10:28 AM · Kala Bhavana, Belthangady. Your blessings are our only gift.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pawankumar1901-netizen.github.io/Marriage-/">
 <meta property="og:image" content="https://pawankumar1901-netizen.github.io/Marriage-/assets/img/og.jpg">
@@ -73,6 +73,7 @@ p{margin:0}
 .gate.open{background:transparent;transition:background 1.4s ease .6s}
 .gate-card{position:relative;z-index:2;text-align:center;color:var(--ivory);padding:24px;display:grid;gap:14px;justify-items:center;max-width:560px;transition:opacity .7s ease,transform .7s ease}
 .gate.open .gate-card{opacity:0;transform:scale(.94)}
+.gate-tag{font-family:var(--f-display);font-size:clamp(1.5rem,5vw,2.2rem);letter-spacing:.06em;color:#FFF6E2;border-block:1px solid rgba(201,165,90,.55);padding:6px 18px}
 .gate-kn{font-family:var(--f-kn);color:var(--gold);font-size:1.25rem;letter-spacing:.06em}
 .gate-names{font-family:var(--f-script);font-size:clamp(3rem,11vw,5.6rem);line-height:1;color:#FFF6E2;text-shadow:0 2px 30px rgba(0,0,0,.35)}
 .gate-names span{color:var(--gold);font-size:.6em;padding-inline:.15em}
@@ -115,6 +116,7 @@ p{margin:0}
 @keyframes kenburns{to{transform:scale(1.08) translateY(-1.5%)}}
 @keyframes shine{0%,40%{background-position:120% 0}70%,100%{background-position:-60% 0}}
 .hero-copy{display:grid;gap:18px;text-align:center;justify-items:center}
+.hashtag{font-family:var(--f-display);font-size:clamp(1.4rem,3vw,1.9rem);letter-spacing:.05em;color:var(--gold)}
 .hero-copy .lead{font-family:var(--f-quote);font-style:italic;font-size:1.25rem;color:#EADFC6;max-width:34ch}
 .names{display:grid;gap:4px;justify-items:center}
 .names h1{font-size:clamp(2.3rem,5.4vw,3.6rem);color:#FFF6E2;letter-spacing:.01em}
@@ -164,27 +166,38 @@ section{padding-block:clamp(64px,10vw,120px)}
 .thread{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:linear-gradient(var(--line),var(--line))}
 .thread i{position:absolute;inset:0 0 auto 0;height:var(--p,0%);background:linear-gradient(var(--gold-ink),var(--kumkum));box-shadow:0 0 12px rgba(178,57,47,.35)}
 .thread i::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;transform:translateX(-50%) rotate(45deg);background:var(--kumkum);border:2px solid var(--ivory)}
-.chapters{display:grid;gap:clamp(56px,9vw,110px);position:relative}
-.chapter{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,8vw,120px);align-items:center}
-.chapter:nth-child(even) .photo{order:2}
-.photo{position:relative;justify-self:center;width:min(100%,400px)}
+.photo{position:relative;justify-self:center;width:min(100%,400px);margin:0}
 .photo .frame{background:#fff;padding:12px 12px 44px;box-shadow:0 30px 60px -30px rgba(15,59,53,.45),0 2px 6px rgba(0,0,0,.06);transform:rotate(var(--r,-3deg));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.chapter:nth-child(even) .photo .frame{--r:3deg}
 .photo:hover .frame{transform:rotate(0deg) scale(1.02)}
 .photo .frame img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .photo .frame figcaption{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--f-script);font-size:1.5rem;color:var(--gold-ink)}
-.photo .tape{position:absolute;top:-12px;left:50%;width:110px;height:28px;transform:translateX(-50%) rotate(-4deg);background:rgba(201,165,90,.35);backdrop-filter:blur(1px)}
-.chapter .text{display:grid;gap:12px;min-width:0}
-.chapter .num{font-family:var(--f-display);font-size:.9rem;letter-spacing:.3em;color:var(--kumkum);text-transform:uppercase}
-.chapter h3{font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--emerald)}
-.chapter p{color:var(--ink-soft);max-width:44ch}
-.chapter .quote{font-family:var(--f-quote);font-style:italic;font-size:1.25rem;color:var(--emerald)}
-.chapter.wide{grid-template-columns:1fr}
-.chapter.wide .photo{width:min(100%,900px)}
-.chapter.wide .photo .frame{--r:-1deg}
-.chapter.wide .photo .frame img{aspect-ratio:16/9}
-.chapter.wide .text{justify-items:center;text-align:center;background:var(--ivory);padding:12px 20px;position:relative;justify-self:center}
-.chapter.wide .text p{max-width:56ch}
+.photo .tape{position:absolute;top:-12px;left:50%;width:110px;height:28px;transform:translateX(-50%) rotate(-4deg);background:rgba(201,165,90,.35)}
+/* prelude: three imagined childhood frames */
+.prelude{display:grid;gap:26px;justify-items:center;text-align:center;margin-bottom:clamp(70px,11vw,130px)}
+.prelude .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,34px);width:100%;max-width:980px}
+.prelude .photo:nth-child(1) .frame{--r:-4deg}.prelude .photo:nth-child(2) .frame{--r:2deg;margin-top:28px}.prelude .photo:nth-child(3) .frame{--r:-2deg}
+.prelude .photo .frame{padding:10px 10px 38px}
+.prelude .photo .frame figcaption{font-size:1.25rem}
+.prelude .note{font-family:var(--f-quote);font-style:italic;font-size:1.2rem;color:var(--emerald);max-width:46ch}
+.prelude .note small{display:block;font-family:var(--f-body);font-style:normal;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:6px}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:clamp(34px,5vw,56px);position:relative}
+.ev{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);align-items:start;gap:clamp(16px,3vw,36px)}
+.ev .when{grid-column:1;text-align:right;padding-top:2px}
+.ev .dot{grid-column:2;justify-self:center;width:16px;height:16px;margin-top:8px;transform:rotate(45deg);background:var(--ivory);border:2px solid var(--kumkum);position:relative;z-index:1}
+.ev .body{grid-column:3;display:grid;gap:6px;min-width:0}
+.ev:nth-child(even) .when{grid-column:3;text-align:left;grid-row:1}
+.ev:nth-child(even) .body{grid-column:1;grid-row:1;text-align:right;justify-items:end}
+.ev .date{font-family:var(--f-display);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--kumkum);line-height:1.2}
+.ev .yr{display:block;font-family:var(--f-body);font-size:.75rem;letter-spacing:.3em;color:var(--gold-ink);font-weight:500}
+.ev h3{font-size:clamp(1.4rem,2.8vw,1.9rem);color:var(--emerald)}
+.ev p{color:var(--ink-soft);max-width:40ch}
+.ev .photo{width:min(100%,360px);margin-top:16px;justify-self:inherit}
+.ev .photo.wide{width:min(100%,460px)}
+.ev .photo.wide .frame img{aspect-ratio:16/10}
+.ev.big .dot{width:22px;height:22px;margin-top:5px;background:var(--kumkum)}
+.ev.next .dot{background:var(--gold);border-color:var(--gold-ink)}
+.ev.next h3{color:var(--kumkum)}
 
 /* ---------- rites ---------- */
 .rites{background:var(--emerald-deep);color:var(--ivory);position:relative;overflow:hidden}
@@ -255,9 +268,15 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   .arch{width:min(78%,340px)}
   .days{grid-template-columns:1fr;max-width:460px;margin-inline:auto}
   .venue-card{grid-template-columns:1fr}
-  .chapter{grid-template-columns:1fr;gap:28px}
-  .chapter:nth-child(even) .photo{order:0}
-  .chapter .text{text-align:center;justify-items:center;background:var(--ivory);padding-block:8px;position:relative}
+  .prelude .trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .prelude .photo .frame{padding:5px 5px 26px}
+  .prelude .photo .frame figcaption{font-size:.95rem;bottom:4px}
+  .prelude .photo .tape{width:60px;height:18px}
+  .thread{left:21px}
+  .ev,.ev:nth-child(even){grid-template-columns:44px minmax(0,1fr);gap:4px 14px}
+  .ev .dot,.ev:nth-child(even) .dot{grid-column:1;grid-row:1}
+  .ev .when,.ev:nth-child(even) .when{grid-column:2;grid-row:1;text-align:left}
+  .ev .body,.ev:nth-child(even) .body{grid-column:2;grid-row:2;text-align:left;justify-items:start}
   .families .pair{grid-template-columns:1fr}
   .knot{justify-self:center;transform:rotate(90deg)}
 }
@@ -280,6 +299,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="door door-l" aria-hidden="true"></div>
   <div class="door door-r" aria-hidden="true"></div>
   <div class="gate-card">
+    <div class="gate-tag">#JaanPaddh'Saga</div>
     <div class="gate-kn" lang="kn">ಶುಭ ವಿವಾಹ</div>
     <div class="eyebrow" style="color:var(--gold)">With the blessings of our elders</div>
     <div class="gate-names">Pawan<span>&amp;</span>Manisha</div>
@@ -309,6 +329,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       <div class="shine" aria-hidden="true"></div>
     </div>
     <div class="hero-copy">
+      <div class="hashtag">#JaanPaddh'Saga</div>
       <div class="eyebrow">Together with their families</div>
       <p class="lead">With the blessings of our elders, we request the honour of your presence at the marriage of</p>
       <div class="names">
@@ -338,66 +359,75 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <!-- ================= STORY ================= -->
 <section class="story" id="story">
   <div class="wrap">
+    <div class="prelude rv">
+      <div class="eyebrow">Before the story</div>
+      <div class="trio">
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/rose.jpg" alt="Imagined picture of the two of us as children, the boy offering the girl a red rose" loading="lazy"><figcaption>a single rose</figcaption></div></figure>
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/tricycle.jpg" alt="Imagined picture of the two of us as children, the boy pushing the girl on a red tricycle" loading="lazy"><figcaption>she steers</figcaption></div></figure>
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/concert.jpg" alt="Imagined picture of the two of us as children, the boy singing into a toy microphone while the girl covers her ears" loading="lazy"><figcaption>his first concert</figcaption></div></figure>
+      </div>
+      <p class="note"><small>Imagined</small>We didn't grow up together. But if we had, we like to think it would have looked like this.</p>
+    </div>
+
     <div class="sec-head rv">
-      <div class="eyebrow">Our story</div>
-      <h2>Some stories begin long before they begin</h2>
+      <div class="eyebrow" style="text-transform:none;letter-spacing:.12em;font-size:1rem">#JaanPaddh'Saga</div>
+      <h2>Our story</h2>
       <svg class="motif" viewBox="0 0 120 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h46M74 9h46"/><path d="M60 2l7 7-7 7-7-7z"/><circle cx="50" cy="9" r="1.6" fill="currentColor"/><circle cx="70" cy="9" r="1.6" fill="currentColor"/></svg>
-      <p>A red thread runs through these pages. Scroll, and watch it tie the two of us together.</p>
+      <p>From one photo to one family, in a year. Scroll, and the red thread ties it together.</p>
     </div>
     <div style="position:relative">
       <div class="thread" id="thread" aria-hidden="true"><i></i></div>
-      <div class="chapters">
-        <article class="chapter rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/rose.jpg" alt="Two children in a village courtyard, the boy offering the girl a red rose" loading="lazy"><figcaption>a single rose</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter one</div>
-            <h3>A rose, before the words</h3>
-            <p>If we had met as children, this is how we like to imagine it. A courtyard, a red rose, and a shy smile that already knew more than we did.</p>
+      <ol class="tl">
+        <li class="ev rv">
+          <div class="when"><div class="date">3 April<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>The proposal</h3><p>A marriage proposal arrived from her family, with her photo.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">June<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>Instagram friends</h3><p>We followed each other on Instagram.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">21 August<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>The first text</h3><p>One message on Instagram started it all.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">25 August<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>The first call</h3><p>Four days later, we finally heard each other's voices.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">26 October &amp; 30 November<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>The families meet</h3><p>Two visits, two families, and a lot of tea.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">6 December<span class="yr">2025</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>Her birthday, our first date</h3><p>Her birthday became our first date.</p></div>
+        </li>
+        <li class="ev rv">
+          <div class="when"><div class="date">10 March<span class="yr">2026</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>Better together, in Mangaluru</h3><p>The neon sign said it before we did.</p>
+            <figure class="photo wide"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-2deg"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha in front of a flower wall with a neon sign reading Better Together" loading="lazy"><figcaption>better together</figcaption></div></figure>
           </div>
-        </article>
-        <article class="chapter rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/tricycle.jpg" alt="A little girl on a red tricycle being pushed along by a laughing little boy" loading="lazy"><figcaption>she steers, he pushes</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter two</div>
-            <h3>Partners for every ride</h3>
-            <p>She holds the handlebars. He supplies the push and most of the noise. Some arrangements were settled very early.</p>
+        </li>
+        <li class="ev big rv">
+          <div class="when"><div class="date">3 April<span class="yr">2026</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>Engaged</h3><p>Exactly one year after the proposal arrived, we were engaged.</p>
+            <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:2deg"><img src="assets/img/engagement.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption>3 April 2026</figcaption></div></figure>
           </div>
-        </article>
-        <article class="chapter rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/concert.jpg" alt="A boy singing loudly into a toy microphone while the girl beside him covers her ears" loading="lazy"><figcaption>the first concert</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter three</div>
-            <h3>His concerts, her patience</h3>
-            <p>Every great love story needs a performer and a very patient audience. Guests are advised: the concerts have not stopped.</p>
-            <p class="quote">Some things you sign up for for life.</p>
-          </div>
-        </article>
-        <article class="chapter wide rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha smiling in front of a flower wall with a neon sign reading Better Together" loading="lazy"><figcaption>better together</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter four</div>
-            <h3>Then the grown-ups met</h3>
-            <p>Two doctors, two busy schedules, and a flower wall that said what we were both thinking. The neon sign got there first.</p>
-          </div>
-        </article>
-        <article class="chapter rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/selfie.jpg" alt="Manisha and Pawan taking a selfie together outdoors" loading="lazy"><figcaption>side by side</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter five</div>
-            <h3>Side by side, ever since</h3>
-            <p>Ward rounds, long drives, and a lot of selfies taken at arm's length. Every frame has the two of us in it now.</p>
-          </div>
-        </article>
-        <article class="chapter rv">
-          <figure class="photo" style="margin:0"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/engagement.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption>3 April 2026</figcaption></div></figure>
-          <div class="text">
-            <div class="num">Chapter six</div>
-            <h3>The rings</h3>
-            <p>On Friday, 3 April 2026, at Sangama Sabha Bhavana, Laila, our families blessed our engagement. The next chapter is the one we would like you to be part of.</p>
-            <a class="btn btn-line" href="#rites" style="justify-self:start">Join us in November</a>
-          </div>
-        </article>
-      </div>
+        </li>
+        <li class="ev next rv">
+          <div class="when"><div class="date">13 November<span class="yr">2026</span></div></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="body"><h3>Forever begins</h3><p>The next date is the one we'd like you to be part of.</p><a class="btn btn-line" href="#rites">See wedding details</a></div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
@@ -501,6 +531,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <footer>
   <div class="kn" lang="kn">ಶುಭ ವಿವಾಹ</div>
   <div class="mono">P &amp; M</div>
+  <div style="font-family:var(--f-display);color:var(--gold);letter-spacing:.06em">#JaanPaddh'Saga</div>
   <small>13 · 11 · 2026 · Belthangady</small>
 </footer>
 
