@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#3E1222">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Pinyon+Script&amp;family=Jost:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;family=Noto+Serif+Kannada:wght@500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Pinyon+Script&amp;family=Jost:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;family=Noto+Serif+Kannada:wght@500&amp;family=Noto+Sans+Kannada:wght@400;500&amp;display=swap">
 <style>
 /* Layout: an invitation that unfolds — temple doors → arch portrait → story thread → two-day rites → venue → blessings.
    Deliberately single-theme: deep wine silk, blush card stock and antique gold. */
@@ -254,6 +254,32 @@ section{padding-block:clamp(64px,10vw,120px)}
 .venue-side .acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 
 /* ---------- blessings ---------- */
+.gallery{background:var(--ivory)}
+.g-grid{columns:3 260px;column-gap:16px}
+.g-item{display:block;width:100%;margin:0 0 16px;padding:0;border:0;background:none;cursor:zoom-in;break-inside:avoid;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(62,18,34,.55)}
+.g-item img{width:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.g-item:hover img{transform:scale(1.04)}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(30,8,16,.94);display:grid;place-items:center;padding:56px 16px calc(56px + env(safe-area-inset-bottom,0px))}
+.lb img{max-width:min(100%,1100px);max-height:100%;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:lbIn .35s ease}
+.lb[hidden]{display:none}
+@keyframes lbIn{from{opacity:0;transform:scale(.96)}}
+.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(216,176,106,.6);background:rgba(62,18,34,.7);color:var(--gold);font:400 30px/1 var(--f-display);cursor:pointer;display:grid;place-items:center}
+.lb-close{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
+.lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb-next{right:12px;top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#E6CFC8;font-size:.85rem;letter-spacing:.2em}
+.lang{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:70;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(216,176,106,.7);background:rgba(62,18,34,.85);color:#FFF4EE;font:500 .9rem/1 var(--f-body);cursor:pointer;backdrop-filter:blur(6px)}
+.lang span{font-family:var(--f-kn)}
+/* Kannada mode */
+html.kn body{font-family:'Noto Sans Kannada',var(--f-body)}
+html.kn h1,html.kn h2,html.kn h3,html.kn .gate-names,html.kn .names .with,html.kn .bless .big,html.kn .photo figcaption,html.kn .ev .date,html.kn .lead,html.kn .note,html.kn .day .when,html.kn .minor{font-family:var(--f-kn);font-style:normal}
+html.kn [data-kn]{letter-spacing:.02em!important;text-transform:none!important}
+html.kn .gate-names{font-size:clamp(2.4rem,9vw,4.2rem)}
+html.kn .names h1{font-size:clamp(1.9rem,4.4vw,2.9rem)}
+html.kn .names .with{font-size:1.5rem}
+html.kn .bless .big{font-size:clamp(2rem,5.5vw,3.2rem)}
+html.kn .photo .frame figcaption{font-size:1.05rem}
+html.kn .lead{font-size:1.1rem;line-height:1.8}
 .bless{background:var(--wine);color:var(--ivory);text-align:center;position:relative;overflow:hidden}
 .bless .big{font-family:var(--f-script);font-size:clamp(2.6rem,7vw,4.6rem);color:var(--gold);line-height:1.1}
 .bless form{margin:28px auto 0;max-width:560px;display:grid;gap:12px;text-align:left}
@@ -301,6 +327,8 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 </head>
 <body class="locked">
 
+<button class="lang" id="langBtn" type="button" aria-label="Switch language"><span lang="kn">ಕನ್ನಡ</span></button>
+
 <!-- Temple doors -->
 <div class="gate" id="gate">
   <div class="door door-l" aria-hidden="true"></div>
@@ -308,10 +336,10 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="gate-card">
     <div class="gate-tag">#JaanPaddh'Saga</div>
     <div class="gate-kn" lang="kn">ಶುಭ ವಿವಾಹ</div>
-    <div class="gate-names">Pawan<span>&amp;</span>Manisha</div>
-    <div class="gate-date">13 · November · 2026</div>
-    <button class="btn btn-gold" id="openGate" type="button">Open the invitation</button>
-    <button class="gate-skip" id="skipGate" type="button">Open without music</button>
+    <div class="gate-names" data-kn="ಪವನ್&lt;span&gt;&amp;amp;&lt;/span&gt;ಮನಿಷಾ">Pawan<span>&amp;</span>Manisha</div>
+    <div class="gate-date" data-kn="13 · ನವೆಂಬರ್ · 2026">13 · November · 2026</div>
+    <button class="btn btn-gold" id="openGate" type="button" data-kn="ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ">Open the invitation</button>
+    <button class="gate-skip" id="skipGate" type="button" data-kn="ಸಂಗೀತವಿಲ್ಲದೆ ತೆರೆಯಿರಿ">Open without music</button>
   </div>
 </div>
 
@@ -336,25 +364,25 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       <div class="shine" aria-hidden="true"></div>
     </div>
     <div class="hero-copy">
-      <div class="eyebrow">Together with their families</div>
-      <p class="lead">With the blessings of our elders, we request the honour of your presence at the marriage of</p>
+      <div class="eyebrow" data-kn="ಎರಡೂ ಕುಟುಂಬಗಳ ಪರವಾಗಿ">Together with their families</div>
+      <p class="lead" data-kn="ಗುರುಹಿರಿಯರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ ನಡೆಯಲಿರುವ ಈ ವಿವಾಹ ಮಹೋತ್ಸವಕ್ಕೆ ತಮಗೆ ಆದರದ ಸ್ವಾಗತ">With the blessings of our elders, we request the honour of your presence at the marriage of</p>
       <div class="names">
-        <h1 class="reveal-letters" data-split>Dr. Pawan Kumar B</h1>
-        <div class="with">with</div>
-        <h1 class="reveal-letters" data-split>Dr. Manisha M</h1>
+        <h1 class="reveal-letters" data-split data-kn="ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ">Dr. Pawan Kumar B</h1>
+        <div class="with" data-kn="ಮತ್ತು">with</div>
+        <h1 class="reveal-letters" data-split data-kn="ಡಾ. ಮನಿಷಾ ಎಂ">Dr. Manisha M</h1>
       </div>
       <div class="date-band">
-        <div class="side">Friday</div>
-        <div class="mid">November<b>13</b>2026</div>
-        <div class="side">10:28 AM</div>
+        <div class="side" data-kn="ಶುಕ್ರವಾರ">Friday</div>
+        <div class="mid" data-kn="ನವೆಂಬರ್&lt;b&gt;13&lt;/b&gt;2026">November<b>13</b>2026</div>
+        <div class="side" data-kn="ಬೆಳಿಗ್ಗೆ 10:28">10:28 AM</div>
       </div>
       <div class="countdown" id="countdown" aria-live="polite">
-        <div class="cd"><b id="cd-d">39</b><span>Days</span></div>
-        <div class="cd"><b id="cd-h">00</b><span>Hours</span></div>
-        <div class="cd"><b id="cd-m">00</b><span>Minutes</span></div>
-        <div class="cd"><b id="cd-s">00</b><span>Seconds</span></div>
+        <div class="cd"><b id="cd-d">39</b><span data-kn="ದಿನ">Days</span></div>
+        <div class="cd"><b id="cd-h">00</b><span data-kn="ಗಂಟೆ">Hours</span></div>
+        <div class="cd"><b id="cd-m">00</b><span data-kn="ನಿಮಿಷ">Minutes</span></div>
+        <div class="cd"><b id="cd-s">00</b><span data-kn="ಸೆಕೆಂಡು">Seconds</span></div>
       </div>
-      <a class="btn btn-line" href="#rites">See wedding details</a>
+      <a class="btn btn-line" id="heroBtn" href="#rites" data-kn="ಮದುವೆಯ ವಿವರಗಳು">See wedding details</a>
     </div>
   </div>
 </header>
@@ -364,79 +392,79 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <section class="story" id="story">
   <div class="wrap">
     <div class="prelude rv">
-      <div class="eyebrow">Before the story</div>
+      <div class="eyebrow" data-kn="ಕಥೆಗೂ ಮುನ್ನ">Before the story</div>
       <div class="trio">
-        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/rose.jpg" alt="Imagined picture of the two of us as children, the boy offering the girl a red rose" loading="lazy"><figcaption>a single rose</figcaption></div></figure>
-        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/tricycle.jpg" alt="Imagined picture of the two of us as children, the boy pushing the girl on a red tricycle" loading="lazy"><figcaption>she steers</figcaption></div></figure>
-        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/concert.jpg" alt="Imagined picture of the two of us as children, the boy singing into a toy microphone while the girl covers her ears" loading="lazy"><figcaption>his first concert</figcaption></div></figure>
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/rose.jpg" alt="Imagined picture of the two of us as children, the boy offering the girl a red rose" loading="lazy"><figcaption data-kn="ಒಂದು ಗುಲಾಬಿ">a single rose</figcaption></div></figure>
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/tricycle.jpg" alt="Imagined picture of the two of us as children, the boy pushing the girl on a red tricycle" loading="lazy"><figcaption data-kn="ಅವಳದೇ ಸ್ಟೀರಿಂಗ್">she steers</figcaption></div></figure>
+        <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame"><img src="assets/img/concert.jpg" alt="Imagined picture of the two of us as children, the boy singing into a toy microphone while the girl covers her ears" loading="lazy"><figcaption data-kn="ಅವನ ಮೊದಲ ಕಛೇರಿ">his first concert</figcaption></div></figure>
       </div>
-      <p class="note"><small>Imagined</small>We didn't grow up together. But if we had, we like to think it would have looked like this.</p>
+      <p class="note" data-kn="&lt;small&gt;ಕಲ್ಪನೆ&lt;/small&gt;ನಾವು ಒಟ್ಟಿಗೆ ಬೆಳೆದವರಲ್ಲ. ಒಂದು ವೇಳೆ ಬೆಳೆದಿದ್ದರೆ, ಹೀಗೆಯೇ ಇರುತ್ತಿತ್ತು ಎಂದುಕೊಳ್ಳುತ್ತೇವೆ."><small>Imagined</small>We didn't grow up together. But if we had, we like to think it would have looked like this.</p>
     </div>
 
     <div class="sec-head rv">
       <div class="eyebrow" style="text-transform:none;letter-spacing:.12em;font-size:1rem">#JaanPaddh'Saga</div>
-      <h2>Our story</h2>
+      <h2 data-kn="ನಮ್ಮ ಕಥೆ">Our story</h2>
       <svg class="motif" viewBox="0 0 120 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h46M74 9h46"/><path d="M60 2l7 7-7 7-7-7z"/><circle cx="50" cy="9" r="1.6" fill="currentColor"/><circle cx="70" cy="9" r="1.6" fill="currentColor"/></svg>
-      <p>From one photo to one family, in a year. Scroll, and the red thread ties it together.</p>
+      <p data-kn="ಒಂದು ಫೋಟೋದಿಂದ ಒಂದು ಕುಟುಂಬದವರೆಗೆ, ಒಂದೇ ವರ್ಷದಲ್ಲಿ. ಕೆಳಗೆ ಸರಿಸಿ, ಕೆಂಪು ದಾರ ಎಲ್ಲವನ್ನೂ ಬೆಸೆಯುತ್ತದೆ.">From one photo to one family, in a year. Scroll, and the red thread ties it together.</p>
     </div>
     <div style="position:relative">
       <div class="thread" id="thread" aria-hidden="true"><i></i></div>
       <ol class="tl">
         <li class="ev rv">
-          <div class="when"><div class="date">3 April<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="3 ಏಪ್ರಿಲ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">3 April<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>The proposal</h3><p>A marriage proposal arrived from her family, with her photo.</p></div>
+          <div class="body"><h3 data-kn="ಮದುವೆ ಪ್ರಸ್ತಾಪ">The proposal</h3><p data-kn="ಅವಳ ಕುಟುಂಬದಿಂದ, ಅವಳ ಫೋಟೋದೊಂದಿಗೆ ಮದುವೆಯ ಪ್ರಸ್ತಾಪ ಬಂತು.">A marriage proposal arrived from her family, with her photo.</p></div>
         </li>
         <li class="ev rv">
-          <div class="when"><div class="date">June<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="ಜೂನ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">June<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>Instagram friends</h3><p>We followed each other on Instagram.</p></div>
+          <div class="body"><h3 data-kn="ಇನ್‌ಸ್ಟಾಗ್ರಾಂ ಸ್ನೇಹ">Instagram friends</h3><p data-kn="ಇನ್‌ಸ್ಟಾಗ್ರಾಂನಲ್ಲಿ ಒಬ್ಬರನ್ನೊಬ್ಬರು ಫಾಲೋ ಮಾಡಿದೆವು.">We followed each other on Instagram.</p></div>
         </li>
         <li class="ev rv">
-          <div class="when"><div class="date">21 August<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="21 ಆಗಸ್ಟ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">21 August<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>The first text</h3><p>One message on Instagram started it all.</p>
+          <div class="body"><h3 data-kn="ಮೊದಲ ಸಂದೇಶ">The first text</h3><p data-kn="ಇನ್‌ಸ್ಟಾಗ್ರಾಂನ ಒಂದು ಸಂದೇಶದಿಂದ ಎಲ್ಲವೂ ಶುರುವಾಯಿತು.">One message on Instagram started it all.</p>
             <figure class="chat"><img src="assets/img/first-text.jpg" alt="Instagram message dated 21 Aug 2025: Hi Manisha, Pawan here. I hope you don't mind me reaching out here on Instagram." loading="lazy"></figure>
           </div>
         </li>
         <li class="ev rv">
-          <div class="when"><div class="date">25 August<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="25 ಆಗಸ್ಟ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">25 August<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>The first call</h3><p>Four days later, we finally heard each other's voices.</p></div>
+          <div class="body"><h3 data-kn="ಮೊದಲ ಕರೆ">The first call</h3><p data-kn="ನಾಲ್ಕು ದಿನಗಳ ನಂತರ, ಮೊದಲ ಬಾರಿಗೆ ಒಬ್ಬರ ಧ್ವನಿಯನ್ನೊಬ್ಬರು ಕೇಳಿದೆವು.">Four days later, we finally heard each other's voices.</p></div>
         </li>
         <li class="ev rv">
-          <div class="when"><div class="date">26 October &amp; 30 November<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="26 ಅಕ್ಟೋಬರ್ ಮತ್ತು 30 ನವೆಂಬರ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">26 October &amp; 30 November<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>The families meet</h3><p>Two visits, two families, and a lot of tea.</p></div>
+          <div class="body"><h3 data-kn="ಕುಟುಂಬಗಳ ಭೇಟಿ">The families meet</h3><p data-kn="ಎರಡು ಭೇಟಿಗಳು, ಎರಡು ಕುಟುಂಬಗಳು, ಮತ್ತು ಸಾಕಷ್ಟು ಚಹಾ.">Two visits, two families, and a lot of tea.</p></div>
         </li>
         <li class="ev rv">
-          <div class="when"><div class="date">6 December<span class="yr">2025</span></div></div>
+          <div class="when"><div class="date" data-kn="6 ಡಿಸೆಂಬರ್&lt;span class=&quot;yr&quot;&gt;2025&lt;/span&gt;">6 December<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>Her birthday, our first date</h3><p>Her birthday became our first date.</p>
-            <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:2deg"><img src="assets/img/selfie.jpg" alt="Manisha and Pawan taking a selfie together on their first date" loading="lazy"><figcaption>first date</figcaption></div></figure>
+          <div class="body"><h3 data-kn="ಅವಳ ಹುಟ್ಟುಹಬ್ಬ, ನಮ್ಮ ಮೊದಲ ಡೇಟ್">Her birthday, our first date</h3><p data-kn="ಅವಳ ಹುಟ್ಟುಹಬ್ಬವೇ ನಮ್ಮ ಮೊದಲ ಡೇಟ್ ಆಯಿತು.">Her birthday became our first date.</p>
+            <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:2deg"><img src="assets/img/selfie.jpg" alt="Manisha and Pawan taking a selfie together on their first date" loading="lazy"><figcaption data-kn="ಮೊದಲ ಡೇಟ್">first date</figcaption></div></figure>
           </div>
         </li>
         <li class="ev rv">
           <div class="when"></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>Better together</h3><p>The neon sign said it before we did.</p>
-            <figure class="photo wide"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-2deg"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha in front of a flower wall with a neon sign reading Better Together" loading="lazy"><figcaption>better together</figcaption></div></figure>
+          <div class="body"><h3 data-kn="ಜೊತೆಯಾಗಿ ಇನ್ನೂ ಚೆನ್ನ">Better together</h3><p data-kn="ನಾವು ಹೇಳುವ ಮೊದಲೇ ನಿಯಾನ್ ಬೋರ್ಡ್ ಹೇಳಿಬಿಟ್ಟಿತು.">The neon sign said it before we did.</p>
+            <figure class="photo wide"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-2deg"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha in front of a flower wall with a neon sign reading Better Together" loading="lazy"><figcaption data-kn="ಜೊತೆಯಾಗಿ">better together</figcaption></div></figure>
           </div>
         </li>
         <li class="ev big rv">
-          <div class="when"><div class="date">3 April<span class="yr">2026</span></div></div>
+          <div class="when"><div class="date" data-kn="3 ಏಪ್ರಿಲ್&lt;span class=&quot;yr&quot;&gt;2026&lt;/span&gt;">3 April<span class="yr">2026</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>Engaged</h3>
+          <div class="body"><h3 data-kn="ನಿಶ್ಚಿತಾರ್ಥ">Engaged</h3>
             <div class="duo">
-              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-3deg"><img src="assets/img/rings.jpg" alt="Two engraved rings resting on Manisha's hennaed palm in Pawan's hand" loading="lazy"><figcaption>the rings</figcaption></div></figure>
-              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:3deg"><img src="assets/img/portrait-studio.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption>3 April 2026</figcaption></div></figure>
+              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-3deg"><img src="assets/img/rings.jpg" alt="Two engraved rings resting on Manisha's hennaed palm in Pawan's hand" loading="lazy"><figcaption data-kn="ಉಂಗುರಗಳು">the rings</figcaption></div></figure>
+              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:3deg"><img src="assets/img/portrait-studio.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption data-kn="3 ಏಪ್ರಿಲ್ 2026">3 April 2026</figcaption></div></figure>
             </div>
           </div>
         </li>
         <li class="ev next rv">
-          <div class="when"><div class="date">13 November<span class="yr">2026</span></div></div>
+          <div class="when"><div class="date" data-kn="13 ನವೆಂಬರ್&lt;span class=&quot;yr&quot;&gt;2026&lt;/span&gt;">13 November<span class="yr">2026</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>Forever begins</h3><p>The next date is the one we'd like you to be part of.</p><a class="btn btn-line" href="#rites">See wedding details</a></div>
+          <div class="body"><h3 data-kn="ಹೊಸ ಪಯಣದ ಆರಂಭ">Forever begins</h3><p data-kn="ಈ ದಿನದಲ್ಲಿ ನೀವೂ ನಮ್ಮೊಂದಿಗಿರಬೇಕೆಂಬುದು ನಮ್ಮ ಆಸೆ.">The next date is the one we'd like you to be part of.</p><a class="btn btn-line" href="#rites" data-kn="ಮದುವೆಯ ವಿವರಗಳು">See wedding details</a></div>
         </li>
       </ol>
     </div>
@@ -447,26 +475,26 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <section class="rites on-dark" id="rites">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">The wedding</div>
-      <h2>Join us for the Muhurtha</h2>
+      <div class="eyebrow" data-kn="ವಿವಾಹ">The wedding</div>
+      <h2 data-kn="ಮುಹೂರ್ತಕ್ಕೆ ತಪ್ಪದೇ ಬನ್ನಿ">Join us for the Muhurtha</h2>
       <svg class="motif" viewBox="0 0 120 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h46M74 9h46"/><path d="M60 2l7 7-7 7-7-7z"/><circle cx="50" cy="9" r="1.6" fill="currentColor"/><circle cx="70" cy="9" r="1.6" fill="currentColor"/></svg>
     </div>
     <div class="days single">
       <article class="day main rv">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M24 6c4 6 4 10 0 14-4-4-4-8 0-14z"/><path d="M14 22h20l-2 6H16z"/><path d="M12 28h24M16 28v12M32 28v12M10 40h28"/><path d="M24 20v2"/></svg>
-        <span class="status">Friday · 13 November 2026</span>
-        <h3>Muhurtha</h3>
-        <div class="when">10:28 AM · Dhanur Lagna</div>
-        <div class="where">Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady</div>
+        <span class="status" data-kn="ಶುಕ್ರವಾರ · 13 ನವೆಂಬರ್ 2026">Friday · 13 November 2026</span>
+        <h3 data-kn="ಮುಹೂರ್ತ">Muhurtha</h3>
+        <div class="when" data-kn="ಬೆಳಿಗ್ಗೆ 10:28 · ಧನುರ್ ಲಗ್ನ">10:28 AM · Dhanur Lagna</div>
+        <div class="where" data-kn="ಶ್ರೀ ಧರ್ಮಸ್ಥಳ ಮಂಜುನಾಥ ಸ್ವಾಮಿ ಕಲಾಭವನ, ಬೆಳ್ತಂಗಡಿ">Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady</div>
         <div class="acts">
-          <a class="btn btn-gold" data-cal="wedding" target="_blank" rel="noopener" href="#">Google Calendar</a>
-          <button class="btn btn-line" data-ics="wedding" type="button">.ics file</button>
+          <a class="btn btn-gold" data-cal="wedding" target="_blank" rel="noopener" href="#" data-kn="ಗೂಗಲ್ ಕ್ಯಾಲೆಂಡರ್">Google Calendar</a>
+          <button class="btn btn-line" data-ics="wedding" type="button" data-kn="ಕ್ಯಾಲೆಂಡರ್ ಫೈಲ್">.ics file</button>
         </div>
       </article>
     </div>
     <div class="minor rv">
-      <p><span>Madarangi Shastra</span> · Thursday, 12 November 2026 · 11:30 AM</p>
-      <p>At our home, Nekraje House, Nittade</p>
+      <p data-kn="&lt;span&gt;ಮದರಂಗಿ ಶಾಸ್ತ್ರ&lt;/span&gt; · ಗುರುವಾರ, 12 ನವೆಂಬರ್ 2026 · ಬೆಳಿಗ್ಗೆ 11:30"><span>Madarangi Shastra</span> · Thursday, 12 November 2026 · 11:30 AM</p>
+      <p data-kn="ನಮ್ಮ ಮನೆಯಲ್ಲಿ, ನೆಕ್ರಾಜೆ ಮನೆ, ನಿಟ್ಟಡೆ">At our home, Nekraje House, Nittade</p>
     </div>
   </div>
 </section>
@@ -475,20 +503,20 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <section class="families" id="families">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Two families, one celebration</div>
-      <h2>With love from our homes</h2>
+      <div class="eyebrow" data-kn="ಎರಡು ಕುಟುಂಬ, ಒಂದು ಸಂಭ್ರಮ">Two families, one celebration</div>
+      <h2 data-kn="ನಮ್ಮ ಮನೆಗಳಿಂದ ಪ್ರೀತಿಯ ಆಹ್ವಾನ">With love from our homes</h2>
     </div>
     <div class="pair">
       <div class="fam rv">
-        <div class="role">The groom</div>
-        <h3>Dr. Pawan Kumar B</h3>
-        <p>Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
+        <div class="role" data-kn="ವರ">The groom</div>
+        <h3 data-kn="ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ">Dr. Pawan Kumar B</h3>
+        <p data-kn="ಶ್ರೀಮತಿ ಬೇಬಿ ಮತ್ತು ಶ್ರೀ ಬಿ. ಲಿಂಗಪ್ಪ ಗೌಡ ಇವರ ಪುತ್ರ">Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
       </div>
       <svg class="knot" id="knot" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 60c0-22 18-40 40-40 0 22-18 40-40 40zM100 60c0 22-18 40-40 40 0-22 18-40 40-40z"/><path d="M60 20c22 0 40 18 40 40-22 0-40-18-40-40zM60 100c-22 0-40-18-40-40 22 0 40 18 40 40z"/><circle cx="60" cy="60" r="6"/></svg>
       <div class="fam rv">
-        <div class="role">The bride</div>
-        <h3>Dr. Manisha M</h3>
-        <p>Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
+        <div class="role" data-kn="ವಧು">The bride</div>
+        <h3 data-kn="ಡಾ. ಮನಿಷಾ ಎಂ">Dr. Manisha M</h3>
+        <p data-kn="ಶ್ರೀಮತಿ ವೇದಾವತಿ ಮತ್ತು ಶ್ರೀ ಮಾಧವ ಗೌಡ ಇವರ ಪುತ್ರಿ">Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
       </div>
     </div>
   </div>
@@ -498,41 +526,67 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <section class="venue" id="venue">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">How to reach us</div>
-      <h2>The venue</h2>
+      <div class="eyebrow" data-kn="ಬರುವ ದಾರಿ">How to reach us</div>
+      <h2 data-kn="ವಿವಾಹ ಸ್ಥಳ">The venue</h2>
     </div>
     <div class="venue-card rv">
       <div class="venue-art on-dark">
         <canvas id="mandala" aria-hidden="true"></canvas>
-        <div class="eyebrow">Muhurtha · 13 November · 10:28 AM</div>
-        <h3>Sri Dharmasthala Manjunatha Swamy Kala Bhavana</h3>
-        <p>Belthangady, Dakshina Kannada, Karnataka</p>
+        <div class="eyebrow" data-kn="ಮುಹೂರ್ತ · 13 ನವೆಂಬರ್ · ಬೆಳಿಗ್ಗೆ 10:28">Muhurtha · 13 November · 10:28 AM</div>
+        <h3 data-kn="ಶ್ರೀ ಧರ್ಮಸ್ಥಳ ಮಂಜುನಾಥ ಸ್ವಾಮಿ ಕಲಾಭವನ">Sri Dharmasthala Manjunatha Swamy Kala Bhavana</h3>
+        <p data-kn="ಬೆಳ್ತಂಗಡಿ, ದಕ್ಷಿಣ ಕನ್ನಡ, ಕರ್ನಾಟಕ">Belthangady, Dakshina Kannada, Karnataka</p>
       </div>
       <div class="venue-side">
         <div class="qr"><img src="assets/img/venue-qr.png" alt="QR code linking to the venue on Google Maps"></div>
-        <div class="small">Scan for venue location</div>
+        <div class="small" data-kn="ಸ್ಥಳ ತಿಳಿಯಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ">Scan for venue location</div>
         <div class="acts">
-          <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Dharmasthala+Manjunatha+Swamy+Kala+Bhavana+Belthangady">Get directions</a>
+          <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Dharmasthala+Manjunatha+Swamy+Kala+Bhavana+Belthangady" data-kn="ದಾರಿ ತೋರಿಸಿ">Get directions</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow" data-kn="ಕ್ಷಣಗಳು">Moments</div>
+      <h2 data-kn="ನಮ್ಮ ನೆನಪುಗಳು">Our moments</h2>
+      <p id="galleryNote" data-kn="ದೊಡ್ಡದಾಗಿ ನೋಡಲು ಫೋಟೋ ಮೇಲೆ ಒತ್ತಿ.">Tap a photo to see it larger.</p>
+    </div>
+    <div class="g-grid rv" id="gGrid">
+      <button class="g-item" type="button" data-i="0"><img src="assets/img/portrait-garden.jpg" alt="Manisha and Pawan in engagement attire under a tree" loading="lazy"></button>
+      <button class="g-item" type="button" data-i="1"><img src="assets/img/rings.jpg" alt="Two engraved rings resting on Manisha's hennaed palm" loading="lazy"></button>
+      <button class="g-item" type="button" data-i="2"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha in front of a Better Together flower wall" loading="lazy"></button>
+      <button class="g-item" type="button" data-i="3"><img src="assets/img/portrait-studio.jpg" alt="Manisha and Pawan at their engagement" loading="lazy"></button>
+      <button class="g-item" type="button" data-i="4"><img src="assets/img/selfie.jpg" alt="Manisha and Pawan on their first date" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&#215;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
 <!-- ================= BLESSINGS ================= -->
 <section class="bless on-dark" id="blessings">
   <div class="wrap">
-    <div class="eyebrow">Your blessings are our only gift</div>
-    <div class="big">Bless the couple</div>
-    <p style="color:#E6CFC8;max-width:52ch;margin:8px auto 0">Write a few words for Pawan and Manisha. Your blessing goes straight to us on WhatsApp.</p>
+    <div class="eyebrow" data-kn="ನಿಮ್ಮ ಆಶೀರ್ವಾದವೇ ನಮಗೆ ಉಡುಗೊರೆ">Your blessings are our only gift</div>
+    <div class="big" data-kn="ನವಜೋಡಿಯನ್ನು ಹರಸಿ">Bless the couple</div>
+    <p style="color:#E6CFC8;max-width:52ch;margin:8px auto 0" data-kn="ಪವನ್ ಮತ್ತು ಮನಿಷಾರಿಗೆ ಕೆಲವು ಮಾತುಗಳನ್ನು ಬರೆಯಿರಿ. ನಿಮ್ಮ ಹಾರೈಕೆ ವಾಟ್ಸ್‌ಆ್ಯಪ್ ಮೂಲಕ ನೇರವಾಗಿ ನಮಗೆ ತಲುಪುತ್ತದೆ.">Write a few words for Pawan and Manisha. Your blessing goes straight to us on WhatsApp.</p>
     <form id="blessForm" novalidate>
-      <label for="bName">Your name</label>
+      <label for="bName" data-kn="ನಿಮ್ಮ ಹೆಸರು">Your name</label>
       <input id="bName" name="name" autocomplete="name">
-      <label for="bMsg">Your blessing</label>
+      <label for="bMsg" data-kn="ನಿಮ್ಮ ಹಾರೈಕೆ">Your blessing</label>
       <textarea id="bMsg" name="msg"></textarea>
       <div class="row">
-        <a class="btn btn-gold" id="waLink" href="https://wa.me/918792385881" target="_blank" rel="noopener">Send on WhatsApp</a>
-        <button class="btn btn-line" type="button" id="shareBtn">Share this invitation</button>
+        <a class="btn btn-gold" id="waLink" href="https://wa.me/918792385881" target="_blank" rel="noopener" data-kn="ವಾಟ್ಸ್‌ಆ್ಯಪ್‌ನಲ್ಲಿ ಕಳುಹಿಸಿ">Send on WhatsApp</a>
+        <button class="btn btn-line" type="button" id="shareBtn" data-kn="ಆಮಂತ್ರಣ ಹಂಚಿಕೊಳ್ಳಿ">Share this invitation</button>
       </div>
     </form>
   </div>
@@ -543,7 +597,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="kn" lang="kn">ಶುಭ ವಿವಾಹ</div>
   <div class="mono">P &amp; M</div>
   <div style="font-family:var(--f-display);color:var(--gold);letter-spacing:.06em">#JaanPaddh'Saga</div>
-  <small>13 · 11 · 2026 · Belthangady</small>
+  <small data-kn="13 · 11 · 2026 · ಬೆಳ್ತಂಗಡಿ">13 · 11 · 2026 · Belthangady</small>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -556,20 +610,24 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
   /* ---------- toast ---------- */
+  let lang = 'en';
+  const L = (en, kn) => lang === 'kn' ? kn : en;
+  $$('[data-kn]').forEach(el => { el.dataset.en = el.innerHTML; });
   let tt;
   function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2800); }
 
   /* ---------- letter split ---------- */
-  $$('[data-split]').forEach(el => {
-    const text = el.textContent; el.setAttribute('aria-label', text); el.textContent = '';
+  function splitText(el, text){
+    el.setAttribute('aria-label', text); el.textContent = '';
     let i = 0;
     text.split(' ').forEach((w, wi, arr) => {
       const word = document.createElement('span'); word.className = 'word'; word.setAttribute('aria-hidden', 'true');
-      [...w].forEach(c => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i++); word.appendChild(s); });
+      (/^[\x00-\x7F]*$/.test(w) ? [...w] : [w]).forEach(c => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i++); word.appendChild(s); });
       el.appendChild(word);
       if (wi < arr.length - 1) el.appendChild(document.createTextNode(' '));
     });
-  });
+  }
+  $$('[data-split]').forEach(el => splitText(el, el.textContent));
   const revealNames = () => $$('.reveal-letters').forEach((el, k) => setTimeout(() => el.classList.add('in'), k * 700));
 
   /* ---------- petals ---------- */
@@ -662,7 +720,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         if (n >= 0) pluck(SCALE[n], ac.currentTime + .02, step % 8 === 1 ? .2 : .13);
       }, 420);
       musicOn = true; setMusicUI();
-    } catch (e) { toast('Music is not available in this browser.'); }
+    } catch (e) { toast(L('Music is not available in this browser.', 'ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸಂಗೀತ ಲಭ್ಯವಿಲ್ಲ.')); }
   }
   function stopMusic(){ if (!song.paused){ fadeSong(0, () => song.pause()); musicOn = false; setMusicUI(); return; } if (ac){ master.gain.linearRampToValueAtTime(0, ac.currentTime + .6); clearInterval(seqTimer); } musicOn = false; setMusicUI(); }
   function setMusicUI(){ const b = $('#musicBtn'); b.classList.toggle('playing', musicOn); b.setAttribute('aria-pressed', musicOn); b.setAttribute('aria-label', musicOn ? 'Pause music' : 'Play music'); }
@@ -688,7 +746,11 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   const prev = {};
   function cd(){
     let d = Math.max(0, target - Date.now());
-    if (d === 0){ $('#countdown').innerHTML = '<div class="cd-done" style="grid-column:1/-1;text-align:center">Just married</div>'; return; }
+    if (d === 0){
+      $('#countdown').innerHTML = '<div class="cd-done" style="grid-column:1/-1;text-align:center" data-kn="ನವಜೋಡಿ">Just married</div>';
+      const done = $('.cd-done'); done.dataset.en = 'Just married'; if (lang === 'kn') done.innerHTML = done.dataset.kn;
+      return;
+    }
     const v = { d: Math.floor(d / 864e5), h: Math.floor(d / 36e5) % 24, m: Math.floor(d / 6e4) % 60, s: Math.floor(d / 1e3) % 60 };
     for (const k in v){
       const el = $('#cd-' + k), val = k === 'd' ? String(v[k]) : pad(v[k]);
@@ -756,25 +818,89 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
       const a = document.createElement('a'); a.href = url; a.download = b.dataset.ics + '-pawan-manisha.ics';
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
-      toast('Calendar file downloaded');
-    } catch (err) { toast('Use the Google Calendar button instead'); }
+      toast(L('Calendar file downloaded', 'ಕ್ಯಾಲೆಂಡರ್ ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಆಯಿತು'));
+    } catch (err) { toast(L('Use the Google Calendar button instead', 'ಗೂಗಲ್ ಕ್ಯಾಲೆಂಡರ್ ಬಟನ್ ಬಳಸಿ')); }
   }));
 
   /* ---------- blessings & share ---------- */
   const waText = () => {
     const name = $('#bName').value.trim(), msg = $('#bMsg').value.trim();
-    return 'Dear Pawan & Manisha,' + (msg ? '\n' + msg : '') + (name ? '\n— ' + name : '');
+    return L('Dear Pawan & Manisha,', 'ಪ್ರೀತಿಯ ಪವನ್ ಮತ್ತು ಮನಿಷಾ,') + (msg ? '\n' + msg : '') + (name ? '\n— ' + name : '');
   };
   const syncWa = () => { $('#waLink').href = 'https://wa.me/918792385881?text=' + encodeURIComponent(waText()); };
   ['#bName', '#bMsg'].forEach(id => $(id).addEventListener('input', syncWa)); syncWa();
   $('#waLink').addEventListener('click', () => spawn(60, true));
   $('#blessForm').addEventListener('submit', ev => { ev.preventDefault(); $('#waLink').click(); });
   $('#shareBtn').addEventListener('click', async () => {
-    const data = { title: 'Pawan & Manisha · Shubha Vivaha', text: 'You are invited to the wedding of Dr. Pawan Kumar B & Dr. Manisha M on Friday, 13 November 2026 at 10:28 AM, Belthangady.', url: location.href.split('#')[0] };
+    const data = { title: 'Pawan & Manisha · Shubha Vivaha', text: L('You are invited to the wedding of Dr. Pawan Kumar B & Dr. Manisha M on Friday, 13 November 2026 at 10:28 AM, Belthangady.', 'ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ ಮತ್ತು ಡಾ. ಮನಿಷಾ ಎಂ ಇವರ ವಿವಾಹ: ಶುಕ್ರವಾರ, 13 ನವೆಂಬರ್ 2026, ಬೆಳಿಗ್ಗೆ 10:28, ಬೆಳ್ತಂಗಡಿ. ತಾವು ಆಗಮಿಸಿ ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ.'), url: location.href.split('#')[0] };
     try { if (navigator.share){ await navigator.share(data); return; } } catch (e) { if (e.name === 'AbortError') return; }
-    try { await navigator.clipboard.writeText(data.text + ' ' + data.url); toast('Invitation link copied'); }
+    try { await navigator.clipboard.writeText(data.text + ' ' + data.url); toast(L('Invitation link copied', 'ಆಮಂತ್ರಣದ ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ')); }
     catch (e) { toast(data.url); }
   });
+
+  /* ---------- gallery viewer ---------- */
+  const shots = $$('.g-item img');
+  let cur = 0, lastFocus = null, touchX = null;
+  function showShot(i){
+    cur = (i + shots.length) % shots.length;
+    const img = $('#lbImg'); img.src = shots[cur].src; img.alt = shots[cur].alt;
+    img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
+    $('#lbCount').textContent = (cur + 1) + ' / ' + shots.length;
+  }
+  function lbKeys(e){
+    if (e.key === 'Escape') closeLb();
+    else if (e.key === 'ArrowRight') showShot(cur + 1);
+    else if (e.key === 'ArrowLeft') showShot(cur - 1);
+  }
+  function openLb(i){
+    lastFocus = document.activeElement; showShot(i);
+    $('#lb').hidden = false; document.body.classList.add('locked');
+    document.addEventListener('keydown', lbKeys); $('#lbClose').focus();
+  }
+  function closeLb(){
+    $('#lb').hidden = true; document.body.classList.remove('locked');
+    document.removeEventListener('keydown', lbKeys); lastFocus && lastFocus.focus();
+  }
+  $$('.g-item').forEach(b => b.addEventListener('click', () => openLb(+b.dataset.i)));
+  $('#lbClose').addEventListener('click', closeLb);
+  $('#lbPrev').addEventListener('click', () => showShot(cur - 1));
+  $('#lbNext').addEventListener('click', () => showShot(cur + 1));
+  $('#lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLb(); });
+  $('#lb').addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  $('#lb').addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX; touchX = null;
+    if (Math.abs(dx) > 40) showShot(cur + (dx < 0 ? 1 : -1));
+  });
+
+  /* ---------- after the wedding: point guests to the photos ---------- */
+  if (Date.now() >= target){
+    const hb = $('#heroBtn');
+    hb.href = '#gallery'; hb.dataset.en = 'See our moments'; hb.dataset.kn = 'ನಮ್ಮ ನೆನಪುಗಳು'; hb.innerHTML = hb.dataset.en;
+    const gn = $('#galleryNote');
+    gn.dataset.en = 'Thank you for blessing us. Wedding photos are coming soon.';
+    gn.dataset.kn = 'ನಮ್ಮನ್ನು ಹರಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ಮದುವೆಯ ಫೋಟೋಗಳು ಶೀಘ್ರದಲ್ಲೇ.';
+    gn.innerHTML = gn.dataset.en;
+  }
+
+  /* ---------- English / Kannada ---------- */
+  function setLang(l){
+    lang = l;
+    document.documentElement.lang = l === 'kn' ? 'kn' : 'en';
+    document.documentElement.classList.toggle('kn', l === 'kn');
+    $$('[data-kn]').forEach(el => {
+      const html = l === 'kn' ? el.dataset.kn : el.dataset.en;
+      if (html === undefined) return;
+      if (el.hasAttribute('data-split')){ splitText(el, html); el.classList.add('in'); }
+      else el.innerHTML = html;
+    });
+    $('#langBtn').innerHTML = l === 'kn' ? 'English' : '<span lang="kn">ಕನ್ನಡ</span>';
+    $('#langBtn').setAttribute('aria-label', l === 'kn' ? 'Switch to English' : 'ಕನ್ನಡದಲ್ಲಿ ಓದಿ');
+    syncWa();
+    try { localStorage.setItem('pm-lang', l); } catch (e) {}
+  }
+  $('#langBtn').addEventListener('click', () => setLang(lang === 'kn' ? 'en' : 'kn'));
+  try { if (localStorage.getItem('pm-lang') === 'kn') setLang('kn'); } catch (e) {}
 })();
 </script>
 </body>
