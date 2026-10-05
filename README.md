@@ -3,11 +3,11 @@
 Animated wedding invitation website for **Dr. Pawan Kumar B** and **Dr. Manisha M**.
 
 - Madarangi Shastra: Thursday, 12 November 2026, 11:30 AM
-- **Muhurtham**: Friday, 13 November 2026, 10:28 AM (Dhanur Lagna) · Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady
+- **Muhurtha**: Friday, 13 November 2026, 10:28 AM (Dhanur Lagna) · Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady
 
 ## What's inside
 - Temple-door opening with a petal shower and our song, Naguva Nayana (falls back to a soft Mohanam-raga melody generated in the browser)
-- Arch portrait, letter-by-letter names, live countdown to the muhurtham
+- Arch portrait, letter-by-letter names, live countdown to the Muhurtha
 - "Our story" photo chapters joined by a red thread that draws as you scroll
 - Wedding details with Google Calendar and .ics buttons
 - Venue card with QR code and Google Maps directions

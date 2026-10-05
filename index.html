@@ -117,6 +117,7 @@ p{margin:0}
 @keyframes shine{0%,40%{background-position:120% 0}70%,100%{background-position:-60% 0}}
 .hero-copy{display:grid;gap:18px;text-align:center;justify-items:center}
 .hashtag{font-family:var(--f-display);font-size:clamp(1.4rem,3vw,1.9rem);letter-spacing:.05em;color:var(--gold)}
+.hero-tag{position:relative;text-align:center;font-size:clamp(1.8rem,4.4vw,2.6rem);margin:0 auto clamp(26px,4vw,44px);padding-inline:16px}
 .hero-copy .lead{font-family:var(--f-quote);font-style:italic;font-size:1.25rem;color:#F1DDD3;max-width:34ch}
 .names{display:grid;gap:4px;justify-items:center}
 .names h1{font-size:clamp(2.3rem,5.4vw,3.6rem);color:#FFF4EE;letter-spacing:.01em}
@@ -322,13 +323,13 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <main>
 <!-- ================= HERO ================= -->
 <header class="hero on-dark" id="top">
+  <div class="hashtag hero-tag">#JaanPaddh'Saga</div>
   <div class="wrap hero-grid">
     <div class="arch">
       <div class="arch-frame"><div class="arch-clip"><img src="assets/img/engagement.jpg" alt="Dr. Manisha M and Dr. Pawan Kumar B at their engagement" fetchpriority="high"></div></div>
       <div class="shine" aria-hidden="true"></div>
     </div>
     <div class="hero-copy">
-      <div class="hashtag">#JaanPaddh'Saga</div>
       <div class="eyebrow">Together with their families</div>
       <p class="lead">With the blessings of our elders, we request the honour of your presence at the marriage of</p>
       <div class="names">
@@ -438,14 +439,14 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow">The wedding</div>
-      <h2>Join us for the muhurtham</h2>
+      <h2>Join us for the Muhurtha</h2>
       <svg class="motif" viewBox="0 0 120 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h46M74 9h46"/><path d="M60 2l7 7-7 7-7-7z"/><circle cx="50" cy="9" r="1.6" fill="currentColor"/><circle cx="70" cy="9" r="1.6" fill="currentColor"/></svg>
     </div>
     <div class="days single">
       <article class="day main rv">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M24 6c4 6 4 10 0 14-4-4-4-8 0-14z"/><path d="M14 22h20l-2 6H16z"/><path d="M12 28h24M16 28v12M32 28v12M10 40h28"/><path d="M24 20v2"/></svg>
         <span class="status">Friday · 13 November 2026</span>
-        <h3>Muhurtham</h3>
+        <h3>Muhurtha</h3>
         <div class="when">10:28 AM · Dhanur Lagna</div>
         <div class="where">Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady</div>
         <div class="acts">
@@ -456,7 +457,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
     </div>
     <div class="minor rv">
       <p><span>Madarangi Shastra</span> · Thursday, 12 November 2026 · 11:30 AM</p>
-      <p class="engaged">We got engaged on 3 April 2026.</p>
+      <p>At our home, Nekraje House, Nittade</p>
     </div>
   </div>
 </section>
@@ -494,7 +495,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
     <div class="venue-card rv">
       <div class="venue-art on-dark">
         <canvas id="mandala" aria-hidden="true"></canvas>
-        <div class="eyebrow">Muhurtham · 13 November · 10:28 AM</div>
+        <div class="eyebrow">Muhurtha · 13 November · 10:28 AM</div>
         <h3>Sri Dharmasthala Manjunatha Swamy Kala Bhavana</h3>
         <p>Belthangady, Dakshina Kannada, Karnataka</p>
       </div>
@@ -514,14 +515,14 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="wrap">
     <div class="eyebrow">Your blessings are our only gift</div>
     <div class="big">Bless the couple</div>
-    <p style="color:#E6CFC8;max-width:52ch;margin:8px auto 0">Write a few words for Pawan and Manisha and send them on WhatsApp. Choose any chat to send it to.</p>
+    <p style="color:#E6CFC8;max-width:52ch;margin:8px auto 0">Write a few words for Pawan and Manisha. Your blessing goes straight to us on WhatsApp.</p>
     <form id="blessForm" novalidate>
       <label for="bName">Your name</label>
-      <input id="bName" name="name" autocomplete="name" placeholder="e.g. Ravi uncle, Bengaluru">
+      <input id="bName" name="name" autocomplete="name">
       <label for="bMsg">Your blessing</label>
-      <textarea id="bMsg" name="msg" placeholder="May your life together be full of laughter, health and many more concerts."></textarea>
+      <textarea id="bMsg" name="msg"></textarea>
       <div class="row">
-        <a class="btn btn-gold" id="waLink" href="https://wa.me/" target="_blank" rel="noopener">Send on WhatsApp</a>
+        <a class="btn btn-gold" id="waLink" href="https://wa.me/918792385881" target="_blank" rel="noopener">Send on WhatsApp</a>
         <button class="btn btn-line" type="button" id="shareBtn">Share this invitation</button>
       </div>
     </form>
@@ -638,7 +639,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   function startMusic(){
     if (!songOk) return startMelody();
     song.volume = 0;
-    song.play().then(() => { musicOn = true; setMusicUI(); fadeSong(.9); }).catch(() => startMelody());
+    song.play().then(() => { musicOn = true; setMusicUI(); fadeSong(.35); }).catch(() => startMelody());
   }
   function startMelody(){
     try {
@@ -728,8 +729,8 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 
   /* ---------- calendar ---------- */
   const EVENTS = {
-    wedding: { title: 'Wedding of Dr. Pawan Kumar B & Dr. Manisha M (Muhurtham 10:28 AM)', start: '20261113T045800Z', end: '20261113T083000Z',
-      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtham at 10:28 AM, Dhanur Lagna. Your blessings are our only gift.' }
+    wedding: { title: 'Wedding of Dr. Pawan Kumar B & Dr. Manisha M (Muhurtha 10:28 AM)', start: '20261113T045800Z', end: '20261113T083000Z',
+      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtha at 10:28 AM, Dhanur Lagna. Your blessings are our only gift.' }
   };
   $$('[data-cal]').forEach(a => {
     const e = EVENTS[a.dataset.cal];
@@ -752,10 +753,10 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 
   /* ---------- blessings & share ---------- */
   const waText = () => {
-    const name = $('#bName').value.trim(), msg = $('#bMsg').value.trim() || 'Wishing you a lifetime of love, laughter and good health.';
-    return 'Dear Pawan & Manisha,\n' + msg + (name ? '\n— ' + name : '');
+    const name = $('#bName').value.trim(), msg = $('#bMsg').value.trim();
+    return 'Dear Pawan & Manisha,' + (msg ? '\n' + msg : '') + (name ? '\n— ' + name : '');
   };
-  const syncWa = () => { $('#waLink').href = 'https://wa.me/?text=' + encodeURIComponent(waText()); };
+  const syncWa = () => { $('#waLink').href = 'https://wa.me/918792385881?text=' + encodeURIComponent(waText()); };
   ['#bName', '#bMsg'].forEach(id => $(id).addEventListener('input', syncWa)); syncWa();
   $('#waLink').addEventListener('click', () => spawn(60, true));
   $('#blessForm').addEventListener('submit', ev => { ev.preventDefault(); $('#waLink').click(); });
