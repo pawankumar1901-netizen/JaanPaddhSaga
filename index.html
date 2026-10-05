@@ -192,6 +192,10 @@ section{padding-block:clamp(64px,10vw,120px)}
 .days{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .day{position:relative;border:1px solid rgba(201,165,90,.4);border-radius:200px 200px 12px 12px;padding:64px 26px 30px;display:grid;gap:12px;justify-items:center;text-align:center;background:linear-gradient(180deg,rgba(201,165,90,.07),transparent 60%);transition:transform .5s ease,border-color .5s ease}
 .day:hover{transform:translateY(-6px);border-color:var(--gold)}
+.days.single{grid-template-columns:minmax(0,1fr);max-width:540px;margin-inline:auto}
+.minor{position:relative;margin-top:34px;display:grid;gap:8px;justify-items:center;text-align:center;color:#D8CDB3;font-size:.95rem}
+.minor span{color:var(--gold);letter-spacing:.06em}
+.minor .engaged{font-family:var(--f-quote);font-style:italic;font-size:1.15rem;color:#EADFC6}
 .day.main{background:linear-gradient(180deg,rgba(201,165,90,.18),rgba(201,165,90,.03) 70%);border-color:var(--gold)}
 .day .icon{width:54px;height:54px;color:var(--gold)}
 .day .status{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;padding:4px 12px;border-radius:999px;border:1px solid rgba(201,165,90,.5);color:var(--gold)}
@@ -309,19 +313,15 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
       <p class="lead">With the blessings of our elders, we request the honour of your presence at the marriage of</p>
       <div class="names">
         <h1 class="reveal-letters" data-split>Dr. Pawan Kumar B</h1>
-        <p class="parents">Son of Smt. Baby &amp; Sri B. Lingappa Gowda, Nekkaje, Nittade</p>
+        <p class="parents">Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
         <div class="with">with</div>
         <h1 class="reveal-letters" data-split>Dr. Manisha M</h1>
-        <p class="parents">Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda, Kuthlur, Belthangady</p>
+        <p class="parents">Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
       </div>
       <div class="date-band">
         <div class="side">Friday</div>
         <div class="mid">November<b>13</b>2026</div>
         <div class="side">10:28 AM</div>
-      </div>
-      <div class="lagna">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 19 19 5"/><path d="M12 5h7v7"/><path d="M6 10a8 8 0 0 0 8 8"/></svg>
-        Muhurtham · Dhanur Lagna
       </div>
       <div class="countdown" id="countdown" aria-live="polite">
         <div class="cd"><b id="cd-d">39</b><span>Days</span></div>
@@ -329,7 +329,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         <div class="cd"><b id="cd-m">00</b><span>Minutes</span></div>
         <div class="cd"><b id="cd-s">00</b><span>Seconds</span></div>
       </div>
-      <a class="btn btn-line" href="#rites">See the ceremonies</a>
+      <a class="btn btn-line" href="#rites">See wedding details</a>
     </div>
   </div>
 </header>
@@ -406,44 +406,26 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
 <section class="rites on-dark" id="rites">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">The ceremonies</div>
-      <h2>Three days we will always remember</h2>
+      <div class="eyebrow">The wedding</div>
+      <h2>Join us for the muhurtham</h2>
       <svg class="motif" viewBox="0 0 120 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h46M74 9h46"/><path d="M60 2l7 7-7 7-7-7z"/><circle cx="50" cy="9" r="1.6" fill="currentColor"/><circle cx="70" cy="9" r="1.6" fill="currentColor"/></svg>
-      <p>One already blessed, two still to come. Add them to your calendar so the muhurtham finds you in your seat.</p>
     </div>
-    <div class="days">
-      <article class="day past rv">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="19" cy="28" r="10"/><circle cx="29" cy="28" r="10"/><path d="M21 14l3-5 3 5"/></svg>
-        <span class="status">Blessed · 3 April 2026</span>
-        <h3>Engagement</h3>
-        <div class="when">Friday, 10:56 AM</div>
-        <div class="where">Sangama Sabha Bhavana, Laila, Belthangady</div>
-        <p class="note">Where we said yes in front of everyone we love.</p>
-      </article>
-      <article class="day rv">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M16 42V22a3 3 0 0 1 6 0v8M22 20v-6a3 3 0 0 1 6 0v16M28 16a3 3 0 0 1 6 0v14M34 22a3 3 0 0 1 6 0v8c0 7-5 12-12 12h-4c-4 0-6-2-8-5l-5-8a3 3 0 0 1 5-3l2 3"/><circle cx="25" cy="34" r="2"/><path d="M25 28v2M25 38v2M19 34h2M29 34h2"/></svg>
-        <span class="status">Thursday · 12 November 2026</span>
-        <h3>Madarangi Shastra</h3>
-        <div class="when">11:30 AM</div>
-        <div class="where">Nekkaje house, Nittade</div>
-        <p class="note">Mehendi, music, and the family at its loudest.</p>
-        <div class="acts">
-          <a class="btn btn-line" data-cal="mehendi" target="_blank" rel="noopener" href="#">Google Calendar</a>
-          <button class="btn btn-line" data-ics="mehendi" type="button">.ics file</button>
-        </div>
-      </article>
+    <div class="days single">
       <article class="day main rv">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M24 6c4 6 4 10 0 14-4-4-4-8 0-14z"/><path d="M14 22h20l-2 6H16z"/><path d="M12 28h24M16 28v12M32 28v12M10 40h28"/><path d="M24 20v2"/></svg>
         <span class="status">Friday · 13 November 2026</span>
         <h3>Muhurtham</h3>
         <div class="when">10:28 AM · Dhanur Lagna</div>
         <div class="where">Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady</div>
-        <p class="note">The wedding. Please be seated a little before the lagna.</p>
         <div class="acts">
           <a class="btn btn-gold" data-cal="wedding" target="_blank" rel="noopener" href="#">Google Calendar</a>
           <button class="btn btn-line" data-ics="wedding" type="button">.ics file</button>
         </div>
       </article>
+    </div>
+    <div class="minor rv">
+      <p><span>Madarangi Shastra</span> · Thursday, 12 November 2026 · 11:30 AM</p>
+      <p class="engaged">We got engaged on 3 April 2026.</p>
     </div>
   </div>
 </section>
@@ -460,14 +442,12 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         <div class="role">The groom</div>
         <h3>Dr. Pawan Kumar B</h3>
         <p>Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
-        <p class="home">Nekkaje, Nittade</p>
       </div>
       <svg class="knot" id="knot" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 60c0-22 18-40 40-40 0 22-18 40-40 40zM100 60c0 22-18 40-40 40 0-22 18-40 40-40z"/><path d="M60 20c22 0 40 18 40 40-22 0-40-18-40-40zM60 100c-22 0-40-18-40-40 22 0 40 18 40 40z"/><circle cx="60" cy="60" r="6"/></svg>
       <div class="fam rv">
         <div class="role">The bride</div>
         <h3>Dr. Manisha M</h3>
         <p>Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
-        <p class="home">Kuthlur, Belthangady</p>
       </div>
     </div>
   </div>
@@ -492,7 +472,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         <div class="small">Scan for venue location</div>
         <div class="acts">
           <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Dharmasthala+Manjunatha+Swamy+Kala+Bhavana+Belthangady">Get directions</a>
-          <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Nittade+Belthangady">Madarangi: Nittade</a>
         </div>
       </div>
     </div>
@@ -700,9 +679,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   /* ---------- calendar ---------- */
   const EVENTS = {
     wedding: { title: 'Wedding of Dr. Pawan Kumar B & Dr. Manisha M (Muhurtham 10:28 AM)', start: '20261113T045800Z', end: '20261113T083000Z',
-      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtham at 10:28 AM, Dhanur Lagna. Your blessings are our only gift.' },
-    mehendi: { title: 'Madarangi Shastra · Pawan & Manisha', start: '20261112T060000Z', end: '20261112T090000Z',
-      loc: 'Nekkaje house, Nittade, Belthangady', desc: 'Madarangi Shastra on the eve of the wedding of Dr. Pawan Kumar B & Dr. Manisha M.' }
+      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtham at 10:28 AM, Dhanur Lagna. Your blessings are our only gift.' }
   };
   $$('[data-cal]').forEach(a => {
     const e = EVENTS[a.dataset.cal];
