@@ -196,6 +196,12 @@ section{padding-block:clamp(64px,10vw,120px)}
 .ev .photo{width:min(100%,360px);margin-top:16px;justify-self:inherit}
 .ev .photo.wide{width:min(100%,460px)}
 .ev .photo.wide .frame img{aspect-ratio:16/10}
+.chat{margin:14px 0 0;width:min(100%,420px);border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(62,18,34,.45);transform:rotate(-1.5deg)}
+.chat img{width:100%}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;width:min(100%,520px);margin-top:16px}
+.duo .photo{margin-top:0;width:100%}
+.duo .photo .frame{padding:8px 8px 34px}
+.duo .photo .frame figcaption{font-size:1.15rem;bottom:6px}
 .ev.big .dot{width:22px;height:22px;margin-top:5px;background:var(--kumkum)}
 .ev.next .dot{background:var(--gold);border-color:var(--gold-ink)}
 .ev.next h3{color:var(--kumkum)}
@@ -326,7 +332,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="hashtag hero-tag">#JaanPaddh'Saga</div>
   <div class="wrap hero-grid">
     <div class="arch">
-      <div class="arch-frame"><div class="arch-clip"><img src="assets/img/engagement.jpg" alt="Dr. Manisha M and Dr. Pawan Kumar B at their engagement" fetchpriority="high"></div></div>
+      <div class="arch-frame"><div class="arch-clip"><img src="assets/img/portrait-garden.jpg" alt="Dr. Manisha M and Dr. Pawan Kumar B in engagement attire under a tree" fetchpriority="high"></div></div>
       <div class="shine" aria-hidden="true"></div>
     </div>
     <div class="hero-copy">
@@ -389,7 +395,9 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         <li class="ev rv">
           <div class="when"><div class="date">21 August<span class="yr">2025</span></div></div>
           <span class="dot" aria-hidden="true"></span>
-          <div class="body"><h3>The first text</h3><p>One message on Instagram started it all.</p></div>
+          <div class="body"><h3>The first text</h3><p>One message on Instagram started it all.</p>
+            <figure class="chat"><img src="assets/img/first-text.jpg" alt="Instagram message dated 21 Aug 2025: Hi Manisha, Pawan here. I hope you don't mind me reaching out here on Instagram." loading="lazy"></figure>
+          </div>
         </li>
         <li class="ev rv">
           <div class="when"><div class="date">25 August<span class="yr">2025</span></div></div>
@@ -419,7 +427,10 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
           <div class="when"><div class="date">3 April<span class="yr">2026</span></div></div>
           <span class="dot" aria-hidden="true"></span>
           <div class="body"><h3>Engaged</h3>
-            <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:2deg"><img src="assets/img/engagement.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption>3 April 2026</figcaption></div></figure>
+            <div class="duo">
+              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:-3deg"><img src="assets/img/rings.jpg" alt="Two engraved rings resting on Manisha's hennaed palm in Pawan's hand" loading="lazy"><figcaption>the rings</figcaption></div></figure>
+              <figure class="photo"><span class="tape" aria-hidden="true"></span><div class="frame" style="--r:3deg"><img src="assets/img/portrait-studio.jpg" alt="Manisha in a silk saree and Pawan in a sherwani at their engagement" loading="lazy"><figcaption>3 April 2026</figcaption></div></figure>
+            </div>
           </div>
         </li>
         <li class="ev next rv">
