@@ -25,6 +25,6 @@ python3 -m http.server 8000
 ## Publish with GitHub Pages
 1. Settings → General → Danger Zone → **Change visibility → Public**. Free GitHub accounts can only host Pages from public repos.
 2. Settings → **Pages** → Source: **Deploy from a branch** → Branch: `claude/animated-marriage-website-gvogtb`, folder `/ (root)` → Save.
-3. After about a minute the site is live at **https://pawankumar1901-netizen.github.io/Marriage-/**
+3. After about a minute the site is live at **https://pawankumar1901-netizen.github.io/JaanPaddhSaga/**
 
 The WhatsApp/social preview image (`assets/img/og.jpg`) is linked using that address.
