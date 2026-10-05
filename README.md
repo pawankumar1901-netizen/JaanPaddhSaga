@@ -13,7 +13,6 @@ Animated wedding invitation website for **Dr. Pawan Kumar B** and **Dr. Manisha 
 - Venue card with QR code and Google Maps directions
 - Blessings form that sends a message via WhatsApp, plus a share button
 - English / ಕನ್ನಡ switch (top-right) covering all page text
-- "Our moments" photo gallery with a full-screen viewer; after the wedding the countdown shows "Just married" and the hero button points to the gallery
 
 It's a single static page (`index.html` + `assets/img/`), with no build step.
 

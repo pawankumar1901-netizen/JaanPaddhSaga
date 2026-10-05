@@ -254,20 +254,6 @@ section{padding-block:clamp(64px,10vw,120px)}
 .venue-side .acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 
 /* ---------- blessings ---------- */
-.gallery{background:var(--ivory)}
-.g-grid{columns:3 260px;column-gap:16px}
-.g-item{display:block;width:100%;margin:0 0 16px;padding:0;border:0;background:none;cursor:zoom-in;break-inside:avoid;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(62,18,34,.55)}
-.g-item img{width:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.g-item:hover img{transform:scale(1.04)}
-.lb{position:fixed;inset:0;z-index:80;background:rgba(30,8,16,.94);display:grid;place-items:center;padding:56px 16px calc(56px + env(safe-area-inset-bottom,0px))}
-.lb img{max-width:min(100%,1100px);max-height:100%;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:lbIn .35s ease}
-.lb[hidden]{display:none}
-@keyframes lbIn{from{opacity:0;transform:scale(.96)}}
-.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(216,176,106,.6);background:rgba(62,18,34,.7);color:var(--gold);font:400 30px/1 var(--f-display);cursor:pointer;display:grid;place-items:center}
-.lb-close{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
-.lb-prev{left:12px;top:50%;transform:translateY(-50%)}
-.lb-next{right:12px;top:50%;transform:translateY(-50%)}
-.lb-count{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#E6CFC8;font-size:.85rem;letter-spacing:.2em}
 .lang{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:70;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(216,176,106,.7);background:rgba(62,18,34,.85);color:#FFF4EE;font:500 .9rem/1 var(--f-body);cursor:pointer;backdrop-filter:blur(6px)}
 .lang span{font-family:var(--f-kn)}
 /* Kannada mode */
@@ -499,29 +485,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   </div>
 </section>
 
-<!-- ================= FAMILIES ================= -->
-<section class="families" id="families">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow" data-kn="ಎರಡು ಕುಟುಂಬ, ಒಂದು ಸಂಭ್ರಮ">Two families, one celebration</div>
-      <h2 data-kn="ನಮ್ಮ ಮನೆಗಳಿಂದ ಪ್ರೀತಿಯ ಆಹ್ವಾನ">With love from our homes</h2>
-    </div>
-    <div class="pair">
-      <div class="fam rv">
-        <div class="role" data-kn="ವರ">The groom</div>
-        <h3 data-kn="ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ">Dr. Pawan Kumar B</h3>
-        <p data-kn="ಶ್ರೀಮತಿ ಬೇಬಿ ಮತ್ತು ಶ್ರೀ ಬಿ. ಲಿಂಗಪ್ಪ ಗೌಡ ಇವರ ಪುತ್ರ">Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
-      </div>
-      <svg class="knot" id="knot" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 60c0-22 18-40 40-40 0 22-18 40-40 40zM100 60c0 22-18 40-40 40 0-22 18-40 40-40z"/><path d="M60 20c22 0 40 18 40 40-22 0-40-18-40-40zM60 100c-22 0-40-18-40-40 22 0 40 18 40 40z"/><circle cx="60" cy="60" r="6"/></svg>
-      <div class="fam rv">
-        <div class="role" data-kn="ವಧು">The bride</div>
-        <h3 data-kn="ಡಾ. ಮನಿಷಾ ಎಂ">Dr. Manisha M</h3>
-        <p data-kn="ಶ್ರೀಮತಿ ವೇದಾವತಿ ಮತ್ತು ಶ್ರೀ ಮಾಧವ ಗೌಡ ಇವರ ಪುತ್ರಿ">Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= VENUE ================= -->
 <section class="venue" id="venue">
   <div class="wrap">
@@ -547,31 +510,28 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   </div>
 </section>
 
-<!-- ================= GALLERY ================= -->
-<section class="gallery" id="gallery">
+<!-- ================= FAMILIES ================= -->
+<section class="families" id="families">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow" data-kn="ಕ್ಷಣಗಳು">Moments</div>
-      <h2 data-kn="ನಮ್ಮ ನೆನಪುಗಳು">Our moments</h2>
-      <p id="galleryNote" data-kn="ದೊಡ್ಡದಾಗಿ ನೋಡಲು ಫೋಟೋ ಮೇಲೆ ಒತ್ತಿ.">Tap a photo to see it larger.</p>
+      <div class="eyebrow" data-kn="ಎರಡು ಕುಟುಂಬ, ಒಂದು ಸಂಭ್ರಮ">Two families, one celebration</div>
+      <h2 data-kn="ನಮ್ಮ ಮನೆಗಳಿಂದ ಪ್ರೀತಿಯ ಆಹ್ವಾನ">With love from our homes</h2>
     </div>
-    <div class="g-grid rv" id="gGrid">
-      <button class="g-item" type="button" data-i="0"><img src="assets/img/portrait-garden.jpg" alt="Manisha and Pawan in engagement attire under a tree" loading="lazy"></button>
-      <button class="g-item" type="button" data-i="1"><img src="assets/img/rings.jpg" alt="Two engraved rings resting on Manisha's hennaed palm" loading="lazy"></button>
-      <button class="g-item" type="button" data-i="2"><img src="assets/img/better-together.jpg" alt="Pawan and Manisha in front of a Better Together flower wall" loading="lazy"></button>
-      <button class="g-item" type="button" data-i="3"><img src="assets/img/portrait-studio.jpg" alt="Manisha and Pawan at their engagement" loading="lazy"></button>
-      <button class="g-item" type="button" data-i="4"><img src="assets/img/selfie.jpg" alt="Manisha and Pawan on their first date" loading="lazy"></button>
+    <div class="pair">
+      <div class="fam rv">
+        <div class="role" data-kn="ವರ">The groom</div>
+        <h3 data-kn="ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ">Dr. Pawan Kumar B</h3>
+        <p data-kn="ಶ್ರೀಮತಿ ಬೇಬಿ ಮತ್ತು ಶ್ರೀ ಬಿ. ಲಿಂಗಪ್ಪ ಗೌಡ ಇವರ ಪುತ್ರ">Son of Smt. Baby &amp; Sri B. Lingappa Gowda</p>
+      </div>
+      <svg class="knot" id="knot" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 60c0-22 18-40 40-40 0 22-18 40-40 40zM100 60c0 22-18 40-40 40 0-22 18-40 40-40z"/><path d="M60 20c22 0 40 18 40 40-22 0-40-18-40-40zM60 100c-22 0-40-18-40-40 22 0 40 18 40 40z"/><circle cx="60" cy="60" r="6"/></svg>
+      <div class="fam rv">
+        <div class="role" data-kn="ವಧು">The bride</div>
+        <h3 data-kn="ಡಾ. ಮನಿಷಾ ಎಂ">Dr. Manisha M</h3>
+        <p data-kn="ಶ್ರೀಮತಿ ವೇದಾವತಿ ಮತ್ತು ಶ್ರೀ ಮಾಧವ ಗೌಡ ಇವರ ಪುತ್ರಿ">Daughter of Smt. Vedavathi &amp; Sri Madhava Gowda</p>
+      </div>
     </div>
   </div>
 </section>
-
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&#215;</button>
-  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
-  <img id="lbImg" alt="">
-  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
-  <div class="lb-count" id="lbCount"></div>
-</div>
 
 <!-- ================= BLESSINGS ================= -->
 <section class="bless on-dark" id="blessings">
@@ -837,51 +797,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
     try { await navigator.clipboard.writeText(data.text + ' ' + data.url); toast(L('Invitation link copied', 'ಆಮಂತ್ರಣದ ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ')); }
     catch (e) { toast(data.url); }
   });
-
-  /* ---------- gallery viewer ---------- */
-  const shots = $$('.g-item img');
-  let cur = 0, lastFocus = null, touchX = null;
-  function showShot(i){
-    cur = (i + shots.length) % shots.length;
-    const img = $('#lbImg'); img.src = shots[cur].src; img.alt = shots[cur].alt;
-    img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
-    $('#lbCount').textContent = (cur + 1) + ' / ' + shots.length;
-  }
-  function lbKeys(e){
-    if (e.key === 'Escape') closeLb();
-    else if (e.key === 'ArrowRight') showShot(cur + 1);
-    else if (e.key === 'ArrowLeft') showShot(cur - 1);
-  }
-  function openLb(i){
-    lastFocus = document.activeElement; showShot(i);
-    $('#lb').hidden = false; document.body.classList.add('locked');
-    document.addEventListener('keydown', lbKeys); $('#lbClose').focus();
-  }
-  function closeLb(){
-    $('#lb').hidden = true; document.body.classList.remove('locked');
-    document.removeEventListener('keydown', lbKeys); lastFocus && lastFocus.focus();
-  }
-  $$('.g-item').forEach(b => b.addEventListener('click', () => openLb(+b.dataset.i)));
-  $('#lbClose').addEventListener('click', closeLb);
-  $('#lbPrev').addEventListener('click', () => showShot(cur - 1));
-  $('#lbNext').addEventListener('click', () => showShot(cur + 1));
-  $('#lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLb(); });
-  $('#lb').addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-  $('#lb').addEventListener('touchend', e => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX; touchX = null;
-    if (Math.abs(dx) > 40) showShot(cur + (dx < 0 ? 1 : -1));
-  });
-
-  /* ---------- after the wedding: point guests to the photos ---------- */
-  if (Date.now() >= target){
-    const hb = $('#heroBtn');
-    hb.href = '#gallery'; hb.dataset.en = 'See our moments'; hb.dataset.kn = 'ನಮ್ಮ ನೆನಪುಗಳು'; hb.innerHTML = hb.dataset.en;
-    const gn = $('#galleryNote');
-    gn.dataset.en = 'Thank you for blessing us. Wedding photos are coming soon.';
-    gn.dataset.kn = 'ನಮ್ಮನ್ನು ಹರಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ಮದುವೆಯ ಫೋಟೋಗಳು ಶೀಘ್ರದಲ್ಲೇ.';
-    gn.innerHTML = gn.dataset.en;
-  }
 
   /* ---------- English / Kannada ---------- */
   function setLang(l){
