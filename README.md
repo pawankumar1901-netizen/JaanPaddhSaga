@@ -22,9 +22,7 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Publish with GitHub Pages
-1. Settings → General → Danger Zone → **Change visibility → Public**. Free GitHub accounts can only host Pages from public repos.
-2. Settings → **Pages** → Source: **Deploy from a branch** → Branch: `claude/animated-marriage-website-gvogtb`, folder `/ (root)` → Save.
-3. After about a minute the site is live at **https://pawankumar1901-netizen.github.io/JaanPaddhSaga/**
+## Live site
+**https://jaanpaddhsaga.netlify.app** — Netlify is linked to this repository and redeploys on every push to `claude/animated-marriage-website-gvogtb`.
 
-The WhatsApp/social preview image (`assets/img/og.jpg`) is linked using that address.
+The WhatsApp/social preview (`og:url`, `og:image`) uses that address. GitHub Pages is also enabled at https://pawankumar1901-netizen.github.io/JaanPaddhSaga/ but its builds were stuck in GitHub's queue.
