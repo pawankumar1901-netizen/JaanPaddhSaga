@@ -23,6 +23,9 @@ python3 -m http.server 8000
 ```
 
 ## Live site
+- Pawan's link: **https://jaanpaddhsaga.netlify.app**
+- Manisha's link: **https://jaanpaddhsaga.netlify.app/#manisha** (her name first, her family's Madarangi at 7:00 PM and Dibbana at 6:00 AM from Sri Ganesha Nilaya, blessings to her WhatsApp)
+
 **https://jaanpaddhsaga.netlify.app** — Netlify is linked to this repository and redeploys on every push to `claude/animated-marriage-website-gvogtb`.
 
 The WhatsApp/social preview (`og:url`, `og:image`) uses that address. GitHub Pages is also enabled at https://pawankumar1901-netizen.github.io/JaanPaddhSaga/ but its builds were stuck in GitHub's queue.
