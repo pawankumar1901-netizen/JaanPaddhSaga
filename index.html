@@ -815,7 +815,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   $('#blessForm').addEventListener('submit', ev => { ev.preventDefault(); $('#waLink').click(); });
   $('#shareBtn').addEventListener('click', async () => {
     const couple = BRIDE ? L('Dr. Manisha M & Dr. Pawan Kumar B', 'ಡಾ. ಮನಿಷಾ ಎಂ ಮತ್ತು ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ') : L('Dr. Pawan Kumar B & Dr. Manisha M', 'ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ ಮತ್ತು ಡಾ. ಮನಿಷಾ ಎಂ');
-    const data = { title: BRIDE ? 'Manisha & Pawan · Shubha Vivaha' : 'Pawan & Manisha · Shubha Vivaha', text: L('You are invited to the wedding of ' + couple + ' on Friday, 13 November 2026 at 10:28 AM, Belthangady.', couple + ' ಇವರ ವಿವಾಹ: ಶುಕ್ರವಾರ, 13 ನವೆಂಬರ್ 2026, ಬೆಳಿಗ್ಗೆ 10:28, ಬೆಳ್ತಂಗಡಿ. ತಾವು ಆಗಮಿಸಿ ವಧೂವರರನ್ನು ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ.'), url: location.href.split('#')[0] + (BRIDE ? '#manisha' : '') };
+    const data = { title: BRIDE ? 'Manisha & Pawan · Shubha Vivaha' : 'Pawan & Manisha · Shubha Vivaha', text: L('You are invited to the wedding of ' + couple + ' on Friday, 13 November 2026 at 10:28 AM, Belthangady.', couple + ' ಇವರ ವಿವಾಹ: ಶುಕ್ರವಾರ, 13 ನವೆಂಬರ್ 2026, ಬೆಳಿಗ್ಗೆ 10:28, ಬೆಳ್ತಂಗಡಿ. ತಾವು ಆಗಮಿಸಿ ವಧೂವರರನ್ನು ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ.'), url: location.href.split('#')[0] + (BRIDE ? 'manisha/' : '') };
     try { if (navigator.share){ await navigator.share(data); return; } } catch (e) { if (e.name === 'AbortError') return; }
     try { await navigator.clipboard.writeText(data.text + ' ' + data.url); toast(L('Invitation link copied', 'ಆಮಂತ್ರಣದ ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ')); }
     catch (e) { toast(data.url); }
