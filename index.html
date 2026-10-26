@@ -476,7 +476,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
         <div class="where" data-kn="ಶ್ರೀ ಧರ್ಮಸ್ಥಳ ಮಂಜುನಾಥ ಸ್ವಾಮಿ ಕಲಾಭವನ, ಬೆಳ್ತಂಗಡಿ">Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady</div>
         <div class="acts">
           <a class="btn btn-gold" data-cal="wedding" target="_blank" rel="noopener" href="#" data-kn="ಗೂಗಲ್ ಕ್ಯಾಲೆಂಡರ್">Google Calendar</a>
-          <button class="btn btn-line" data-ics="wedding" type="button" data-kn="ಕ್ಯಾಲೆಂಡರ್ ಫೈಲ್">.ics file</button>
         </div>
       </article>
     </div>
@@ -790,19 +789,6 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
     a.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(e.title) +
       '&dates=' + e.start + '/' + e.end + '&location=' + encodeURIComponent(e.loc) + '&details=' + encodeURIComponent(e.desc);
   });
-  $$('[data-ics]').forEach(b => b.addEventListener('click', () => {
-    const e = EVENTS[b.dataset.ics];
-    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pawan & Manisha//Wedding//EN','BEGIN:VEVENT',
-      'UID:' + b.dataset.ics + '-pawan-manisha-2026@invite','DTSTAMP:20261001T000000Z','DTSTART:' + e.start,'DTEND:' + e.end,
-      'SUMMARY:' + e.title,'LOCATION:' + e.loc.replace(/,/g, '\\,'),'DESCRIPTION:' + e.desc.replace(/,/g, '\\,'),
-      'BEGIN:VALARM','TRIGGER:-PT2H','ACTION:DISPLAY','DESCRIPTION:Reminder','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
-    try {
-      const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
-      const a = document.createElement('a'); a.href = url; a.download = b.dataset.ics + '-pawan-manisha.ics';
-      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
-      toast(L('Calendar file downloaded', 'ಕ್ಯಾಲೆಂಡರ್ ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಆಯಿತು'));
-    } catch (err) { toast(L('Use the Google Calendar button instead', 'ಗೂಗಲ್ ಕ್ಯಾಲೆಂಡರ್ ಬಟನ್ ಬಳಸಿ')); }
-  }));
 
   /* ---------- blessings & share ---------- */
   const waText = () => {

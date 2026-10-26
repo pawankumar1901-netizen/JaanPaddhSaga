@@ -9,7 +9,7 @@ Animated wedding invitation website for **Dr. Pawan Kumar B** and **Dr. Manisha 
 - Temple-door opening with a petal shower and our song, Naguva Nayana (falls back to a soft Mohanam-raga melody generated in the browser)
 - Arch portrait, letter-by-letter names, live countdown to the Muhurtha
 - "Our story" photo chapters joined by a red thread that draws as you scroll
-- Wedding details with Google Calendar and .ics buttons
+- Wedding details with a Google Calendar button
 - Venue card with QR code and Google Maps directions
 - Blessings form that sends a message via WhatsApp, plus a share button
 - English / ಕನ್ನಡ switch (top-right) covering all page text
