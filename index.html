@@ -884,6 +884,9 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   shots.forEach(() => dotsBox.appendChild(document.createElement('i')));
   const dots = $$('i', dotsBox);
   const current = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    if (strip.scrollLeft <= 2) return 0;
+    if (strip.scrollLeft >= max - 2) return shots.length - 1;
     const mid = strip.scrollLeft + strip.clientWidth / 2;
     let best = 0, bd = Infinity;
     shots.forEach((s, i) => { const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid); if (d < bd){ bd = d; best = i; } });
@@ -892,8 +895,14 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   const markDots = () => { const c = current(); dots.forEach((d, i) => d.classList.toggle('on', i === c)); };
   strip.addEventListener('scroll', () => requestAnimationFrame(markDots), { passive: true }); markDots();
   const goTo = i => { const s = shots[Math.max(0, Math.min(shots.length - 1, i))]; strip.scrollTo({ left: s.offsetLeft - (strip.clientWidth - s.offsetWidth) / 2 }); };
-  $('#stripPrev').addEventListener('click', () => goTo(current() - 1));
-  $('#stripNext').addEventListener('click', () => goTo(current() + 1));
+  const stripStep = dir => {
+    const max = strip.scrollWidth - strip.clientWidth, w = shots[0].offsetWidth + 16;
+    if (dir > 0 && strip.scrollLeft >= max - 2) return goTo(0);
+    if (dir < 0 && strip.scrollLeft <= 2) return goTo(shots.length - 1);
+    strip.scrollBy({ left: dir * w });
+  };
+  $('#stripPrev').addEventListener('click', () => stripStep(-1));
+  $('#stripNext').addEventListener('click', () => stripStep(1));
 
   let cur = 0, lastFocus = null, touchX = null;
   const lbImgs = shots.map(s => $('img', s));
