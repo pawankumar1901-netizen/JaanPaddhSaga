@@ -283,7 +283,9 @@ html.kn .lead{font-size:1.1rem;line-height:1.8}
 footer{background:var(--wine-deep);color:#E6CFC8;text-align:center;padding-block:56px calc(56px + env(safe-area-inset-bottom,0px));display:grid;gap:10px;justify-items:center}
 footer .kn{font-family:var(--f-kn);color:var(--gold);font-size:1.3rem}
 footer .mono{font-family:var(--f-script);font-size:3rem;color:#FFF4EE;line-height:1}
-footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
+footer .brand{display:block;margin-top:8px;opacity:.85;transition:opacity .3s}
+footer .brand:hover,footer .brand:focus-visible{opacity:1}
+footer .brand img{display:block;width:120px;height:auto}
 
 /* ---------- responsive ---------- */
 .prewed{background:var(--ivory-2)}
@@ -621,7 +623,7 @@ footer small{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase}
   <div class="kn" lang="kn">ಮದುವೆಯ ಮಮತೆಯ ಕರೆಯೋಲೆ</div>
   <div class="mono" id="mono">P &amp; M</div>
   <div style="font-family:var(--f-display);color:var(--gold);letter-spacing:.06em">#JaanPaddh'Saga</div>
-  <small data-kn="13 · 11 · 2026 · ಬೆಳ್ತಂಗಡಿ">13 · 11 · 2026 · Belthangady</small>
+  <a class="brand" href="https://pawansdroid.in" target="_blank" rel="noopener"><img src="assets/img/pawansdroid-logo.png" alt="pawansDr.oid" width="120" height="36" loading="lazy"></a>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
