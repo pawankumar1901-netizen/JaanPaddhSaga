@@ -28,6 +28,8 @@ python3 -m http.server 8000
 - Manisha's link: **https://jaanpaddhsaga.pawansdroid.in/manisha/** (WhatsApp preview reads Manisha & Pawan; it forwards to `/#manisha`) (her name first, her family's Madarangi at 7:00 PM from Sri Ganesha Nilaya, blessings to her WhatsApp)
 - Kannada links: **https://jaanpaddhsaga.pawansdroid.in/kannada/** and **https://jaanpaddhsaga.pawansdroid.in/manisha/kannada/** (Kannada WhatsApp preview; they forward to `/#kannada` and `/#manisha-kannada` and open in Kannada without changing the saved language choice)
 
-**https://jaanpaddhsaga.pawansdroid.in** — Netlify is linked to this repository and redeploys on every push to `claude/animated-marriage-website-gvogtb`.
+**https://jaanpaddhsaga.pawansdroid.in** is served by Cloudflare Pages (project `jaanpaddhsaga`, `jaanpaddhsaga.pages.dev`), which redeploys on every push to `claude/animated-marriage-website-gvogtb`. DNS for pawansdroid.in is on Cloudflare: `jaanpaddhsaga` is a proxied CNAME to `jaanpaddhsaga.pages.dev`.
 
-The WhatsApp/social preview (`og:url`, `og:image`) uses that address. GitHub Pages is also enabled at https://pawankumar1901-netizen.github.io/JaanPaddhSaga/ but its builds were stuck in GitHub's queue.
+The old Netlify site (`jaanpaddhsaga.netlify.app`) is kept as a backup with builds stopped; pointing the CNAME back to it (DNS only) restores it.
+
+The WhatsApp/social preview (`og:url`, `og:image`) uses the pawansdroid.in address. GitHub Pages at https://pawankumar1901-netizen.github.io/JaanPaddhSaga/ is used to review changes.
