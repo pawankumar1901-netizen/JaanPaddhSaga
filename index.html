@@ -14,6 +14,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#3E1222">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/icon-48.png" id="favicon">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png" id="touchIcon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Pinyon+Script&amp;family=Jost:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;family=Noto+Serif+Kannada:wght@500&amp;family=Noto+Sans+Kannada:wght@400;500&amp;display=swap">
@@ -646,6 +648,8 @@ footer .brand img{display:block;width:120px;height:auto}
   const WA_NUMBER = BRIDE ? '919482872676' : '918792385881';
   if (BRIDE){
     document.title = 'Manisha & Pawan · Shubha Vivaha';
+    $('#favicon').href = 'assets/img/icon-m-48.png';
+    $('#touchIcon').href = 'assets/img/icon-m-180.png';
     const g = $('.gate-names');
     g.innerHTML = 'Manisha<span>&amp;</span>Pawan'; g.setAttribute('data-kn', 'ಮನಿಷಾ<span>&amp;</span>ಪವನ್');
     const [h1a, h1b] = $$('.names h1');
@@ -849,7 +853,7 @@ footer .brand img{display:block;width:120px;height:auto}
   /* ---------- calendar ---------- */
   const EVENTS = {
     wedding: { title: BRIDE ? 'Wedding of Dr. Manisha M & Dr. Pawan Kumar B (Muhurtha 10:28 AM)' : 'Wedding of Dr. Pawan Kumar B & Dr. Manisha M (Muhurtha 10:28 AM)', start: '20261113T045800Z', end: '20261113T083000Z',
-      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtha at 10:28 AM, Dhanur Lagna. Your blessings are our only gift.' }
+      loc: 'Sri Dharmasthala Manjunatha Swamy Kala Bhavana, Belthangady', desc: 'Muhurtha at 10:28 AM. Your blessings are our only gift.' }
   };
   $$('[data-cal]').forEach(a => {
     const e = EVENTS[a.dataset.cal];
