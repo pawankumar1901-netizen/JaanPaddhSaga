@@ -26,6 +26,7 @@ python3 -m http.server 8000
 ## Live site
 - Pawan's link: **https://jaanpaddhsaga.pawansdroid.in**
 - Manisha's link: **https://jaanpaddhsaga.pawansdroid.in/manisha/** (WhatsApp preview reads Manisha & Pawan; it forwards to `/#manisha`) (her name first, her family's Madarangi at 7:00 PM from Sri Ganesha Nilaya, blessings to her WhatsApp)
+- Kannada links: **https://jaanpaddhsaga.pawansdroid.in/kannada/** and **https://jaanpaddhsaga.pawansdroid.in/manisha/kannada/** (Kannada WhatsApp preview; they forward to `/#kannada` and `/#manisha-kannada` and open in Kannada without changing the saved language choice)
 
 **https://jaanpaddhsaga.pawansdroid.in** — Netlify is linked to this repository and redeploys on every push to `claude/animated-marriage-website-gvogtb`.
 

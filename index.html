@@ -639,7 +639,8 @@ footer .brand img{display:block;width:120px;height:auto}
   let lang = 'en';
   const L = (en, kn) => lang === 'kn' ? kn : en;
   /* ---------- Manisha's link (#manisha): her name first, her family's events, blessings to her ---------- */
-  const BRIDE = /^#manisha$/i.test(location.hash);
+  const BRIDE = /^#manisha(-kannada)?$/i.test(location.hash);
+  const KN_LINK = /^#(manisha-)?kannada$/i.test(location.hash); // /kannada and /manisha/kannada open in Kannada
   const WA_NUMBER = BRIDE ? '919482872676' : '918792385881';
   if (BRIDE){
     document.title = 'Manisha & Pawan · Shubha Vivaha';
@@ -783,7 +784,7 @@ footer .brand img{display:block;width:120px;height:auto}
   }
   $('#openGate').addEventListener('click', () => openGate(true));
   $('#skipGate').addEventListener('click', () => openGate(false));
-  if (location.hash && !/^#(top|manisha)$/i.test(location.hash)) openGate(false);
+  if (location.hash && !/^#(top|manisha|kannada|manisha-kannada)$/i.test(location.hash)) openGate(false);
 
   /* ---------- countdown ---------- */
   const target = new Date('2026-11-13T10:28:00+05:30').getTime();
@@ -865,7 +866,7 @@ footer .brand img{display:block;width:120px;height:auto}
   $('#blessForm').addEventListener('submit', ev => { ev.preventDefault(); $('#waLink').click(); });
   $('#shareBtn').addEventListener('click', async () => {
     const couple = BRIDE ? L('Dr. Manisha M & Dr. Pawan Kumar B', 'ಡಾ. ಮನಿಷಾ ಎಂ ಮತ್ತು ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ') : L('Dr. Pawan Kumar B & Dr. Manisha M', 'ಡಾ. ಪವನ್ ಕುಮಾರ್ ಬಿ ಮತ್ತು ಡಾ. ಮನಿಷಾ ಎಂ');
-    const data = { title: BRIDE ? 'Manisha & Pawan · Shubha Vivaha' : 'Pawan & Manisha · Shubha Vivaha', text: L('You are invited to the wedding of ' + couple + ' on Friday, 13 November 2026 at 10:28 AM, Belthangady.', couple + ' ಇವರ ವಿವಾಹ: ಶುಕ್ರವಾರ, 13 ನವೆಂಬರ್ 2026, ಬೆಳಿಗ್ಗೆ 10:28, ಬೆಳ್ತಂಗಡಿ. ತಾವು ಆಗಮಿಸಿ ವಧೂವರರನ್ನು ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ.'), url: location.href.split('#')[0] + (BRIDE ? 'manisha/' : '') };
+    const data = { title: BRIDE ? 'Manisha & Pawan · Shubha Vivaha' : 'Pawan & Manisha · Shubha Vivaha', text: L('You are invited to the wedding of ' + couple + ' on Friday, 13 November 2026 at 10:28 AM, Belthangady.', couple + ' ಇವರ ವಿವಾಹ: ಶುಕ್ರವಾರ, 13 ನವೆಂಬರ್ 2026, ಬೆಳಿಗ್ಗೆ 10:28, ಬೆಳ್ತಂಗಡಿ. ತಾವು ಆಗಮಿಸಿ ವಧೂವರರನ್ನು ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ.'), url: location.href.split('#')[0] + (BRIDE ? 'manisha/' : '') + (lang === 'kn' ? 'kannada/' : '') };
     try { if (navigator.share){ await navigator.share(data); return; } } catch (e) { if (e.name === 'AbortError') return; }
     try { await navigator.clipboard.writeText(data.text + ' ' + data.url); toast(L('Invitation link copied', 'ಆಮಂತ್ರಣದ ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ')); }
     catch (e) { toast(data.url); }
@@ -940,7 +941,7 @@ footer .brand img{display:block;width:120px;height:auto}
   });
 
   /* ---------- English / Kannada ---------- */
-  function setLang(l){
+  function setLang(l, save = true){
     lang = l;
     document.documentElement.lang = l === 'kn' ? 'kn' : 'en';
     document.documentElement.classList.toggle('kn', l === 'kn');
@@ -953,10 +954,14 @@ footer .brand img{display:block;width:120px;height:auto}
     $('#langBtn').innerHTML = l === 'kn' ? 'English' : '<span lang="kn">ಕನ್ನಡ</span>';
     $('#langBtn').setAttribute('aria-label', l === 'kn' ? 'Switch to English' : 'ಕನ್ನಡದಲ್ಲಿ ಓದಿ');
     syncWa();
-    try { localStorage.setItem('pm-lang', l); } catch (e) {}
+    if (save) try { localStorage.setItem('pm-lang', l); } catch (e) {}
   }
   $('#langBtn').addEventListener('click', () => setLang(lang === 'kn' ? 'en' : 'kn'));
-  try { if (localStorage.getItem('pm-lang') === 'kn') setLang('kn'); } catch (e) {}
+  if (KN_LINK){
+    setLang('kn', false);
+    document.title = (BRIDE ? 'ಮನಿಷಾ & ಪವನ್' : 'ಪವನ್ & ಮನಿಷಾ') + ' · ಮದುವೆಯ ಮಮತೆಯ ಕರೆಯೋಲೆ';
+  }
+  else try { if (localStorage.getItem('pm-lang') === 'kn') setLang('kn'); } catch (e) {}
 })();
 </script>
 </body>
